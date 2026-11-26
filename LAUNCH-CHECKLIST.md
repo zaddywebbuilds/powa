@@ -37,12 +37,27 @@ document. None of them appear on the site until `verified: true`.
 
 ## 4. Replace the product photography
 
-- [ ] Photograph the real bottle, front and back, in daylight
-- [ ] Replace `hero-dark`, `hero-dark-alt`, `product-hero`, `bundle-one/two/three`
-- [ ] Lighten the hero and final-banner scrims in `site.css` once the labels are real
+The garbled label text on the artwork has been repainted. Each bottle now reads:
 
-Every supplied bottle image has garbled label text on it. The scrims and crops
-currently hide it. That is a patch, not a fix.
+```
+Herbal food supplement
+For adult men, 18 and over
+Not a medicine. Read the label.
+```
+
+All three lines come from `config.js` and are verified. Two things on the
+artwork are still **not** verified and are still printed on it:
+
+- [ ] "30 CAPSULES" on the red band. Confirm the pack size, or replace the art.
+- [ ] "100% HERBAL PRODUCT" above the brand name. Confirm the composition, or
+      replace the art.
+
+These are AI-generated images of a bottle, not photographs of your bottle.
+
+- [ ] Photograph the real bottle, front and back, in daylight
+- [ ] Replace `hero-dark`, `hero-dark-alt`, `product-hero`, `product-usage`,
+      `bundle-one/two/three`, `package-podium`, `returns-badge`
+- [ ] Check the capsules shown match what is actually in the bottle
 
 ## 5. Write the terms down
 
@@ -52,6 +67,10 @@ currently hide it. That is a patch, not a fix.
       you actually use, not with the old sales page
 - [ ] Confirm whether the parcel is genuinely unbranded before claiming it is
 - [ ] Only set `payment.cardOnDelivery` if the rider carries a POS terminal
+
+`assets/img/reserve/reserve-payment-delivery.webp` shows a card being offered to
+a POS terminal, and `reserve-ingredients.webp` names botanicals as the formula.
+Both stay off the site until the fact behind the picture is in writing.
 
 ## 6. Fix the package pricing
 

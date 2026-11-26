@@ -533,6 +533,16 @@ section{position:relative}
 /* ------------------------------------------------------------- steps */
 
 .steps{grid-template-columns:repeat(4,1fr);counter-reset:s}
+
+/* Heading on the left, the four steps filling the rest, rather than a
+   heading with half a band of nothing beside it. */
+.steps-cols{display:grid;grid-template-columns:.74fr 1.26fr;gap:clamp(24px,4vw,56px);align-items:start}
+.steps-cols .steps{grid-template-columns:1fr 1fr}
+
+/* A closing note set in two columns uses the band instead of leaving the
+   right half empty. */
+.note-cols{column-count:2;column-gap:clamp(28px,4.5vw,60px)}
+@media (max-width:760px){.note-cols{column-count:1}}
 .step{
   position:relative;padding:1.3rem 1.25rem;
   background:#171B17;border:1px solid var(--line-dark);border-radius:var(--r-md);
@@ -546,7 +556,7 @@ section{position:relative}
 .step p{font-size:.86rem;color:var(--muted-dark);margin:0;line-height:1.5}
 .on-light .step p{color:var(--muted)}
 
-@media (max-width:860px){.steps{grid-template-columns:1fr 1fr}}
+@media (max-width:860px){.steps-cols{grid-template-columns:1fr;gap:1.3rem}.steps{grid-template-columns:1fr 1fr}}
 @media (max-width:520px){.steps{grid-template-columns:1fr}}
 
 /* ---------------------------------------------------------------- FAQ */
@@ -631,9 +641,21 @@ section{position:relative}
 .summary .thumb strong{display:block;font-size:.95rem}
 .summary .thumb span{font-size:.8rem;color:var(--muted-dark)}
 
+.order-side{display:flex;flex-direction:column;gap:clamp(16px,2.2vw,26px)}
+
+/* A column of copy next to a long list leaves a tall hole under it. The art
+   fills the column rather than letting the section run on empty. */
+.col-art{
+  margin-top:clamp(18px,2.6vw,30px);
+  border-radius:var(--r-md);overflow:hidden;background:var(--white);
+}
+.col-art img{width:100%;height:auto;display:block}
+.order-side .col-art{margin-top:0}
+
 @media (max-width:900px){
   .checkout{grid-template-columns:1fr}
-  .summary{position:static;order:-1}
+  .order-side{order:-1}
+  .summary{position:static}
 }
 
 /* ------------------------------------------------------------ final CTA */
