@@ -36,12 +36,12 @@ window.KNACK = {
   },
 
   /* ------------------------------------------------------------- contact -- */
-  // Placeholders are deliberately obvious. Replace before going live.
+  // Same line for WhatsApp and calls.
   contact: {
-    whatsapp:    { value: "", verified: false, label: "WhatsApp" },
-    phone:       { value: "", verified: false },
+    whatsapp:    { value: "2349167075671", verified: true, label: "WhatsApp" },
+    phone:       { value: "+234 916 707 5671", verified: true },
     email:       { value: "", verified: false },
-    hours:       { value: "Monday to Saturday, 9am - 6pm WAT", verified: false },
+    hours:       { value: "Monday to Saturday, 9am - 6pm WAT", verified: true },
     prefilledMessage:
       "Hello, I would like more information about Knack Extra and your delivery options."
   },
