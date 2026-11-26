@@ -1,0 +1,393 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Store settings | Knack Extra</title>
+<meta name="robots" content="noindex,nofollow,noarchive">
+<link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
+<style>
+:root{
+  --ink:#101310;--deep:#080A09;--gold:#C6A15B;--ivory:#F8F5EE;
+  --forest:#21543D;--burgundy:#742C2C;--muted:#6B706C;--line:rgba(16,19,16,.12);
+}
+*{box-sizing:border-box}
+body{
+  margin:0;background:#EFECE4;color:var(--ink);
+  font:15px/1.55 ui-sans-serif,system-ui,'Segoe UI',Roboto,sans-serif;
+}
+header{background:var(--deep);color:var(--ivory);padding:14px 20px;display:flex;align-items:center;gap:14px;flex-wrap:wrap;position:sticky;top:0;z-index:10}
+header h1{font-size:1rem;margin:0;font-weight:700;letter-spacing:.02em}
+header .sp{flex:1}
+header a{color:var(--gold);font-size:.85rem;text-decoration:none;font-weight:600}
+header a:hover{text-decoration:underline}
+
+.wrap{max-width:1060px;margin:0 auto;padding:20px}
+
+.warn{
+  background:#FBF1DF;border:1px solid #E2C98E;border-left:4px solid var(--gold);
+  padding:12px 15px;border-radius:8px;margin-bottom:18px;font-size:.88rem;line-height:1.55;
+}
+.warn strong{display:block;margin-bottom:3px}
+
+.tabs{display:flex;gap:4px;margin-bottom:18px;flex-wrap:wrap;border-bottom:1px solid var(--line)}
+.tab{
+  padding:9px 15px;border:0;background:none;font:inherit;font-weight:600;font-size:.9rem;
+  color:var(--muted);cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-1px;
+}
+.tab[aria-selected="true"]{color:var(--ink);border-bottom-color:var(--gold)}
+
+.panel[hidden]{display:none}
+
+.card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:18px 20px;margin-bottom:16px}
+.card h2{font-size:.95rem;margin:0 0 4px;font-weight:700}
+.card .sub{font-size:.82rem;color:var(--muted);margin:0 0 16px;line-height:1.5}
+
+.f{margin-bottom:13px}
+.f label{display:block;font-size:.8rem;font-weight:700;margin-bottom:4px}
+.f .note{font-weight:500;color:var(--muted);font-size:.76rem}
+.f input[type=text],.f input[type=number],.f textarea,.f select{
+  width:100%;font:inherit;font-size:.9rem;padding:8px 10px;border:1px solid #CFCBC1;
+  border-radius:7px;background:#fff;color:var(--ink);
+}
+.f textarea{min-height:66px;resize:vertical}
+.f input:focus,.f textarea:focus,.f select:focus{outline:2px solid var(--gold);outline-offset:-1px;border-color:var(--gold)}
+
+.row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media (max-width:640px){.row{grid-template-columns:1fr}}
+
+.vtoggle{display:flex;align-items:center;gap:7px;margin-top:5px;font-size:.78rem;font-weight:600}
+.vtoggle input{width:16px;height:16px;accent-color:var(--forest)}
+.vtoggle span{color:var(--muted)}
+.vtoggle[data-on="1"] span{color:var(--forest)}
+
+.pill{display:inline-block;padding:2px 8px;border-radius:999px;font-size:.7rem;font-weight:700;letter-spacing:.03em}
+.pill.ok{background:#DFF0E6;color:var(--forest)}
+.pill.no{background:#F6E3E3;color:var(--burgundy)}
+
+.btn{
+  display:inline-flex;align-items:center;gap:6px;background:var(--ink);color:var(--ivory);
+  border:0;border-radius:8px;padding:10px 16px;font:inherit;font-weight:700;font-size:.88rem;cursor:pointer;
+}
+.btn:hover{filter:brightness(1.15)}
+.btn.gold{background:var(--gold);color:var(--deep)}
+.btn.ghost{background:none;color:var(--ink);border:1px solid #CFCBC1}
+
+.bar{
+  position:sticky;bottom:0;background:#fff;border-top:1px solid var(--line);
+  padding:12px 20px;display:flex;gap:10px;align-items:center;flex-wrap:wrap;
+  box-shadow:0 -4px 18px rgba(0,0,0,.07);
+}
+.bar .sp{flex:1}
+.bar .status{font-size:.82rem;color:var(--muted)}
+
+table{width:100%;border-collapse:collapse;font-size:.86rem}
+th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line)}
+th{font-size:.74rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
+td.num{text-align:right;font-variant-numeric:tabular-nums;font-weight:700}
+
+pre{
+  background:var(--deep);color:#DDE3DC;padding:14px;border-radius:9px;
+  overflow:auto;font-size:.76rem;line-height:1.5;max-height:360px;
+}
+code{background:#E4E0D6;padding:1px 5px;border-radius:4px;font-size:.85em}
+ul.checklist{padding-left:0;list-style:none;margin:0}
+ul.checklist li{padding:7px 0;border-bottom:1px solid var(--line);display:flex;gap:10px;align-items:flex-start;font-size:.87rem}
+ul.checklist li:last-child{border-bottom:0}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Knack Extra &mdash; store settings</h1>
+  <span class="sp"></span>
+  <a href="../index.html" target="_blank" rel="noopener">View site &#8599;</a>
+</header>
+
+<div class="wrap">
+
+  <div class="warn">
+    <strong>Read this once.</strong>
+    This page is not a login-protected dashboard, because the site is hosted as static files on GitHub Pages and there is no server to check a password against. A password box here would only be for show. It holds <em>no customer data</em> and it is blocked from search engines. Treat the URL as unlisted, not as secret.
+    Orders do not appear here: they arrive in your WhatsApp. What this page does is edit <code>assets/js/config.js</code>, the one file that every price, policy and contact detail on the website is read from.
+  </div>
+
+  <div class="tabs" role="tablist">
+    <button class="tab" role="tab" aria-selected="true"  data-p="p-launch">Launch readiness</button>
+    <button class="tab" role="tab" aria-selected="false" data-p="p-business">Business &amp; contact</button>
+    <button class="tab" role="tab" aria-selected="false" data-p="p-product">Product</button>
+    <button class="tab" role="tab" aria-selected="false" data-p="p-pricing">Packages</button>
+    <button class="tab" role="tab" aria-selected="false" data-p="p-terms">Delivery &amp; returns</button>
+    <button class="tab" role="tab" aria-selected="false" data-p="p-stats">Page stats</button>
+    <button class="tab" role="tab" aria-selected="false" data-p="p-export">Save changes</button>
+  </div>
+
+  <!-- ============================================= launch readiness -->
+  <section class="panel" id="p-launch">
+    <div class="card">
+      <h2>What is still missing</h2>
+      <p class="sub">Anything marked outstanding is hidden from customers right now. The site will not print a fact it cannot stand behind, so filling these in is what makes the page fill out.</p>
+      <ul class="checklist" id="readiness"></ul>
+    </div>
+
+    <div class="card">
+      <h2>Preview mode</h2>
+      <p class="sub">While this is on, every page carries a red pre-launch bar listing what is unconfirmed. Turn it off only when the launch checklist in the repository is signed off.</p>
+      <div class="f">
+        <label class="vtoggle" data-on="0">
+          <input type="checkbox" id="previewMode">
+          <span id="previewLabel">Preview mode</span>
+        </label>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>Before you advertise this anywhere</h2>
+      <p class="sub">These are not website settings. They are the things that decide whether running an advert is legal and whether the advert will survive review.</p>
+      <ul class="checklist">
+        <li><span class="pill no">Required</span> NAFDAC product registration for a herbal product sold commercially in Nigeria.</li>
+        <li><span class="pill no">Required</span> NAFDAC advertisement approval, which is separate from product registration.</li>
+        <li><span class="pill no">Required</span> ARCON / Advertising Standards Panel approval for the advert itself.</li>
+        <li><span class="pill no">Check</span> Meta restricts sexual-enhancement products and reviews the landing page, not just the advert.</li>
+        <li><span class="pill no">Check</span> TikTok prohibits advertising products intended to enhance sexual performance. Renaming the category does not change that.</li>
+        <li><span class="pill ok">Done</span> No fake countdowns, stock counters, invented reviews or before-and-after claims anywhere on this site.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============================================ business & contact -->
+  <section class="panel" id="p-business" hidden>
+    <div class="card">
+      <h2>Registered business</h2>
+      <p class="sub">The seller's legal name and address. Required before launch: a commercial site with no identified seller behind it is a problem both legally and for customer trust.</p>
+      <div class="f">
+        <label for="businessName">Business name</label>
+        <input type="text" id="businessName" data-path="site.businessName">
+        <label class="vtoggle"><input type="checkbox" data-verify="site.businessName"><span>Confirmed</span></label>
+      </div>
+      <div class="f">
+        <label for="businessAddress">Business address</label>
+        <input type="text" id="businessAddress" data-path="site.businessAddress">
+        <label class="vtoggle"><input type="checkbox" data-verify="site.businessAddress"><span>Confirmed</span></label>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>Customer contact</h2>
+      <p class="sub">Orders are sent to the WhatsApp number below. If no number is confirmed here, the order button on the site switches itself off rather than pretending to work.</p>
+      <div class="row">
+        <div class="f">
+          <label for="whatsapp">WhatsApp number <span class="note">digits only, with country code, e.g. 2348030000000</span></label>
+          <input type="text" id="whatsapp" data-path="contact.whatsapp" inputmode="numeric">
+          <label class="vtoggle"><input type="checkbox" data-verify="contact.whatsapp"><span>Confirmed</span></label>
+        </div>
+        <div class="f">
+          <label for="phone">Phone number <span class="note">as you want it shown</span></label>
+          <input type="text" id="phone" data-path="contact.phone">
+          <label class="vtoggle"><input type="checkbox" data-verify="contact.phone"><span>Confirmed</span></label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="f">
+          <label for="email">Support email</label>
+          <input type="text" id="email" data-path="contact.email">
+          <label class="vtoggle"><input type="checkbox" data-verify="contact.email"><span>Confirmed</span></label>
+        </div>
+        <div class="f">
+          <label for="hours">Support hours</label>
+          <input type="text" id="hours" data-path="contact.hours">
+          <label class="vtoggle"><input type="checkbox" data-verify="contact.hours"><span>Confirmed</span></label>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================================================= product -->
+  <section class="panel" id="p-product" hidden>
+    <div class="warn">
+      <strong>Only tick "confirmed" against a document.</strong>
+      A supplier saying it on the phone is not a document. The packaging artwork supplied with this build is AI-generated and its label text is garbled nonsense, so it is not evidence of anything either.
+    </div>
+    <div class="card">
+      <h2>Label facts</h2>
+      <p class="sub">Each of these appears in the product panel on the website only once it is confirmed.</p>
+      <div class="row">
+        <div class="f">
+          <label for="category">Product category</label>
+          <input type="text" id="category" data-path="product.category">
+          <label class="vtoggle"><input type="checkbox" data-verify="product.category"><span>Confirmed</span></label>
+        </div>
+        <div class="f">
+          <label for="packSize">Pack size</label>
+          <input type="text" id="packSize" data-path="product.packSize">
+          <label class="vtoggle"><input type="checkbox" data-verify="product.packSize"><span>Confirmed</span></label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="f">
+          <label for="manufacturer">Manufacturer</label>
+          <input type="text" id="manufacturer" data-path="product.manufacturer">
+          <label class="vtoggle"><input type="checkbox" data-verify="product.manufacturer"><span>Confirmed</span></label>
+        </div>
+        <div class="f">
+          <label for="countryOfOrigin">Made in</label>
+          <input type="text" id="countryOfOrigin" data-path="product.countryOfOrigin">
+          <label class="vtoggle"><input type="checkbox" data-verify="product.countryOfOrigin"><span>Confirmed</span></label>
+        </div>
+      </div>
+      <div class="f">
+        <label for="nafdacNumber">NAFDAC registration number <span class="note">leave empty until you hold the certificate</span></label>
+        <input type="text" id="nafdacNumber" data-path="product.nafdacNumber">
+        <label class="vtoggle"><input type="checkbox" data-verify="product.nafdacNumber"><span>Confirmed, certificate on file</span></label>
+      </div>
+      <div class="f">
+        <label for="dosage">Approved dosage <span class="note">copy it from the pack, word for word</span></label>
+        <input type="text" id="dosage" data-path="product.dosage">
+        <label class="vtoggle"><input type="checkbox" data-verify="product.dosage"><span>Confirmed</span></label>
+      </div>
+      <div class="f">
+        <label for="ingredients">Ingredients <span class="note">one per line, exactly as the label lists them</span></label>
+        <textarea id="ingredients" data-path="product.ingredients" data-list="1" style="min-height:110px"></textarea>
+        <label class="vtoggle"><input type="checkbox" data-verify="product.ingredients"><span>Confirmed against the printed label</span></label>
+      </div>
+      <div class="f">
+        <label for="warnings">Warnings and precautions <span class="note">one per line</span></label>
+        <textarea id="warnings" data-path="product.warnings" data-list="1" style="min-height:110px"></textarea>
+        <label class="vtoggle"><input type="checkbox" data-verify="product.warnings"><span>Confirmed</span></label>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====================================================== packages -->
+  <section class="panel" id="p-pricing" hidden>
+    <div class="card">
+      <h2>Packages and prices</h2>
+      <p class="sub">Prices in Naira, no commas. The site works out the price per bottle itself and tells the customer which pack is genuinely the best value, so the numbers here need to make sense.</p>
+      <div id="pkg-editor"></div>
+      <div id="pkg-warn"></div>
+    </div>
+  </section>
+
+  <!-- ============================================ delivery & returns -->
+  <section class="panel" id="p-terms" hidden>
+    <div class="card">
+      <h2>Delivery</h2>
+      <p class="sub">Confirm these with the courier you actually use, not with the old sales page.</p>
+      <div class="f">
+        <label class="vtoggle"><input type="checkbox" id="deliveryFree" data-bool="delivery.free"><span>Delivery is free</span></label>
+        <label class="vtoggle"><input type="checkbox" data-verify="delivery.free"><span>Confirmed</span></label>
+      </div>
+      <div class="f">
+        <label for="deliveryFee">Delivery fee <span class="note">used only when delivery is not free</span></label>
+        <input type="number" id="deliveryFee" data-path="delivery.fee" data-num="1" min="0" step="50">
+        <label class="vtoggle"><input type="checkbox" data-verify="delivery.fee"><span>Confirmed</span></label>
+      </div>
+      <div class="row">
+        <div class="f">
+          <label for="timeframe">Delivery timeframe</label>
+          <input type="text" id="timeframe" data-path="delivery.timeframe">
+          <label class="vtoggle"><input type="checkbox" data-verify="delivery.timeframe"><span>Confirmed</span></label>
+        </div>
+        <div class="f">
+          <label for="coverage">Areas covered</label>
+          <input type="text" id="coverage" data-path="delivery.coverage">
+          <label class="vtoggle"><input type="checkbox" data-verify="delivery.coverage"><span>Confirmed</span></label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="f">
+          <label for="packaging">Packaging</label>
+          <input type="text" id="packaging" data-path="delivery.packaging">
+          <label class="vtoggle"><input type="checkbox" data-verify="delivery.packaging"><span>Confirmed</span></label>
+        </div>
+        <div class="f">
+          <label for="carrier">Courier</label>
+          <input type="text" id="carrier" data-path="delivery.carrier">
+          <label class="vtoggle"><input type="checkbox" data-verify="delivery.carrier"><span>Confirmed</span></label>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>Payment</h2>
+      <div class="f">
+        <label class="vtoggle"><input type="checkbox" data-bool="payment.onDelivery"><span>Cash on delivery accepted</span></label>
+        <label class="vtoggle"><input type="checkbox" data-verify="payment.onDelivery"><span>Confirmed</span></label>
+      </div>
+      <div class="f">
+        <label class="vtoggle"><input type="checkbox" data-bool="payment.cardOnDelivery"><span>Card on delivery &mdash; only tick this if the rider genuinely carries a POS terminal</span></label>
+        <label class="vtoggle"><input type="checkbox" data-verify="payment.cardOnDelivery"><span>Confirmed</span></label>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>Returns</h2>
+      <p class="sub">Write the conditions out. "100% money back" with unwritten conditions attached is how customers end up feeling cheated, and it is the single most common cause of a chargeback dispute.</p>
+      <div class="f">
+        <label for="windowDays">Return window, in days</label>
+        <input type="number" id="windowDays" data-path="refund.windowDays" data-num="1" min="0" step="1">
+        <label class="vtoggle"><input type="checkbox" data-verify="refund.windowDays"><span>Confirmed</span></label>
+      </div>
+      <div class="f">
+        <label for="refundSummary">Short summary shown on the main page</label>
+        <textarea id="refundSummary" data-path="refund.summary"></textarea>
+        <label class="vtoggle"><input type="checkbox" data-verify="refund.summary"><span>Confirmed</span></label>
+      </div>
+      <div class="f">
+        <label for="refundConditions">Conditions <span class="note">one per line: eligibility, opened packs, who pays return postage, how long a refund takes</span></label>
+        <textarea id="refundConditions" data-path="refund.conditions" data-list="1" style="min-height:120px"></textarea>
+        <label class="vtoggle"><input type="checkbox" data-verify="refund.conditions"><span>Confirmed</span></label>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================= stats -->
+  <section class="panel" id="p-stats" hidden>
+    <div class="card">
+      <h2>Page activity</h2>
+      <p class="sub">
+        Counts held in <em>this browser only</em>. The site sends nothing to any analytics or advertising service, deliberately: transmitting page context for a product in this category to an ad platform is exactly the kind of sensitive-data leak you do not want. For real traffic numbers across all visitors you would need a privacy-respecting analytics host, which means leaving static hosting.
+      </p>
+      <table>
+        <thead><tr><th>Event</th><th class="num">Count</th></tr></thead>
+        <tbody id="stats-body"></tbody>
+      </table>
+      <p style="margin-top:14px">
+        <button class="btn ghost" id="clear-stats">Clear these counts</button>
+      </p>
+    </div>
+    <div class="card">
+      <h2>Orders</h2>
+      <p class="sub">Orders are not stored on this website. There is no server and no database, so there is nothing here to list. Every order arrives as a WhatsApp message containing the reference, the package, the total and the delivery address. Keep your order book in WhatsApp, or in a spreadsheet you fill from it.</p>
+      <p><a class="btn gold" id="wa-link" href="#" target="_blank" rel="noopener">Open WhatsApp</a></p>
+    </div>
+  </section>
+
+  <!-- ======================================================== export -->
+  <section class="panel" id="p-export" hidden>
+    <div class="card">
+      <h2>Save your changes</h2>
+      <p class="sub">
+        This page cannot write to the website on its own. Download the new <code>config.js</code>, drop it into <code>assets/js/</code> in the repository, replacing the old one, and commit. GitHub Pages republishes within a minute or two.
+      </p>
+      <p>
+        <button class="btn gold" id="download">Download config.js</button>
+        <button class="btn ghost" id="copy">Copy to clipboard</button>
+      </p>
+      <pre id="preview-code"></pre>
+    </div>
+  </section>
+
+</div>
+
+<div class="bar">
+  <span class="status" id="status">No changes yet.</span>
+  <span class="sp"></span>
+  <button class="btn ghost" id="revert">Revert</button>
+  <button class="btn gold" id="goexport">Save changes</button>
+</div>
+
+<script src="../assets/js/config.js"></script>
+<script src="admin.js"></script>
+</body>
+</html>

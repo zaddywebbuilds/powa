@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en-NG">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Order received | Knack Extra</title>
+<meta name="description" content="Your Knack Extra order has been received. Here is what happens next.">
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#101310">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/css/site.css">
+</head>
+<body>
+
+<main class="ty">
+  <div class="ty-card">
+    <div class="ty-top">
+      <div class="mark">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+      </div>
+      <h1>Thank you. Your order has been received.</h1>
+      <p>Nothing has been dispatched yet, and nothing has been charged.</p>
+    </div>
+
+    <div class="ty-body">
+      <div class="ty-ref">
+        <span>Your reference</span>
+        <strong id="ty-ref">&mdash;</strong>
+      </div>
+
+      <ul class="spec" id="ty-details" style="margin-top:0"></ul>
+
+      <h2 class="h-sm" style="margin:1.6rem 0 .5rem">What happens next</h2>
+      <ol style="padding-left:1.1rem;margin:0;font-size:.92rem;line-height:1.65;color:#4A4F4B">
+        <li style="margin-bottom:.45rem">A member of our team calls you on the number you gave, to confirm the address and agree a delivery window.</li>
+        <li style="margin-bottom:.45rem">Once you confirm on that call, your parcel is packed and sent out.</li>
+        <li style="margin-bottom:.45rem">You pay the rider when the parcel reaches you. We will never ask you for a card number, a PIN or a one-time code.</li>
+      </ol>
+
+      <div class="notice" style="margin-top:1.3rem">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16h.01"/></svg>
+        <div>Receiving an order is not the same as dispatching it. If you do not hear from us within one working day, get in touch with your reference and we will find it.</div>
+      </div>
+
+      <div style="display:flex;gap:.6rem;flex-wrap:wrap;margin-top:1.5rem">
+        <a href="index.html" class="btn btn-dark">Back to the website</a>
+        <a href="#" class="btn btn-ghost" data-support-link>Contact support</a>
+      </div>
+
+      <p style="font-size:.78rem;color:var(--muted);margin-top:1.2rem;line-height:1.5" id="ty-privacy">
+        Your address and phone number are not shown in the web address of this page, and they are cleared from this browser when you close the tab.
+      </p>
+    </div>
+  </div>
+</main>
+
+<script src="assets/js/config.js"></script>
+<script>
+(function () {
+  'use strict';
+  var C = window.KNACK || {};
+
+  function live(p) {
+    var f = String(p).split('.').reduce(function (o, k) { return o == null ? undefined : o[k]; }, C);
+    if (f == null) return false;
+    if (typeof f !== 'object' || !('verified' in f)) return !!f;
+    return f.verified && f.value !== '' && f.value != null;
+  }
+  function val(p) {
+    if (!live(p)) return null;
+    var f = String(p).split('.').reduce(function (o, k) { return o[k]; }, C);
+    return (f && typeof f === 'object' && 'value' in f) ? f.value : f;
+  }
+  function money(n) {
+    return (C.site ? C.site.currencySymbol : '₦') + Number(n).toLocaleString('en-NG');
+  }
+  function esc(s) {
+    return String(s).replace(/[&<>"']/g, function (c) {
+      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+    });
+  }
+
+  var o = null;
+  try { o = JSON.parse(sessionStorage.getItem('ke_order') || 'null'); } catch (e) {}
+
+  if (!o) {
+    // Someone landed here directly, or refreshed after the tab was closed.
+    document.getElementById('ty-ref').textContent = 'Not found';
+    document.getElementById('ty-details').innerHTML =
+      '<li style="display:block;font-size:.9rem;line-height:1.55">We could not find the details of a recent order in this browser. ' +
+      'If you have already sent your order to us on WhatsApp, it has reached us and we will call you. ' +
+      'If not, please place it again from the website.</li>';
+  } else {
+    document.getElementById('ty-ref').textContent = o.ref;
+    var rows = [
+      ['Package', o.package + ' (' + o.qty + (o.qty > 1 ? ' bottles' : ' bottle') + ')'],
+      ['Subtotal', money(o.subtotal)],
+      ['Delivery', o.deliveryLabel],
+      ['Total payable', money(o.total) + (o.feeUnknown ? ' plus delivery' : '')],
+      ['Delivering to', o.state]
+    ];
+    document.getElementById('ty-details').innerHTML = rows.map(function (r) {
+      return '<li><span class="k">' + esc(r[0]) + '</span><span class="v">' + esc(r[1]) + '</span></li>';
+    }).join('');
+
+    // Refreshing this page must not look like a second order.
+    try { sessionStorage.removeItem('ke_order'); } catch (e) {}
+    try { sessionStorage.setItem('ke_order_shown', JSON.stringify(o)); } catch (e) {}
+  }
+
+  // Support link
+  var href = '#';
+  var wa = val('contact.whatsapp'), em = val('contact.email'), ph = val('contact.phone');
+  if (wa) href = 'https://wa.me/' + String(wa).replace(/\D/g, '') +
+      '?text=' + encodeURIComponent('Hello, I am following up on order ' + (o ? o.ref : ''));
+  else if (em) href = 'mailto:' + em;
+  else if (ph) href = 'tel:' + String(ph).replace(/\s/g, '');
+
+  Array.prototype.forEach.call(document.querySelectorAll('[data-support-link]'), function (a) {
+    if (href === '#') { a.remove(); return; }
+    a.href = href;
+    if (href.indexOf('http') === 0) { a.target = '_blank'; a.rel = 'noopener'; }
+  });
+})();
+</script>
+</body>
+</html>

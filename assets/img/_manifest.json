@@ -1,0 +1,310 @@
+{
+  "hero-dark": {
+    "src_w": 1672,
+    "src_h": 941,
+    "variants": [
+      {
+        "file": "hero-dark.webp",
+        "w": 1672,
+        "h": 941
+      },
+      {
+        "file": "hero-dark-sm.webp",
+        "w": 1056,
+        "h": 594
+      }
+    ],
+    "dir": "img"
+  },
+  "hero-dark-alt": {
+    "src_w": 1672,
+    "src_h": 941,
+    "variants": [
+      {
+        "file": "hero-dark-alt.webp",
+        "w": 1672,
+        "h": 941
+      },
+      {
+        "file": "hero-dark-alt-sm.webp",
+        "w": 1056,
+        "h": 594
+      }
+    ],
+    "dir": "img"
+  },
+  "product-hero": {
+    "src_w": 1122,
+    "src_h": 1402,
+    "variants": [
+      {
+        "file": "product-hero.webp",
+        "w": 1122,
+        "h": 1402
+      },
+      {
+        "file": "product-hero-sm.webp",
+        "w": 660,
+        "h": 825
+      }
+    ],
+    "dir": "img"
+  },
+  "thoughtful-man": {
+    "src_w": 1122,
+    "src_h": 1402,
+    "variants": [
+      {
+        "file": "thoughtful-man.webp",
+        "w": 1100,
+        "h": 1375
+      },
+      {
+        "file": "thoughtful-man-sm.webp",
+        "w": 604,
+        "h": 755
+      }
+    ],
+    "dir": "img"
+  },
+  "researching-man": {
+    "src_w": 1122,
+    "src_h": 1402,
+    "variants": [
+      {
+        "file": "researching-man.webp",
+        "w": 1100,
+        "h": 1375
+      },
+      {
+        "file": "researching-man-sm.webp",
+        "w": 604,
+        "h": 755
+      }
+    ],
+    "dir": "img"
+  },
+  "supportive-couple": {
+    "src_w": 1122,
+    "src_h": 1402,
+    "variants": [
+      {
+        "file": "supportive-couple.webp",
+        "w": 1122,
+        "h": 1402
+      },
+      {
+        "file": "supportive-couple-sm.webp",
+        "w": 716,
+        "h": 895
+      }
+    ],
+    "dir": "img"
+  },
+  "trusted-friends": {
+    "src_w": 1122,
+    "src_h": 1402,
+    "variants": [
+      {
+        "file": "trusted-friends.webp",
+        "w": 1100,
+        "h": 1375
+      },
+      {
+        "file": "trusted-friends-sm.webp",
+        "w": 604,
+        "h": 755
+      }
+    ],
+    "dir": "img"
+  },
+  "confident-man": {
+    "src_w": 1122,
+    "src_h": 1402,
+    "variants": [
+      {
+        "file": "confident-man.webp",
+        "w": 1122,
+        "h": 1402
+      },
+      {
+        "file": "confident-man-sm.webp",
+        "w": 716,
+        "h": 895
+      }
+    ],
+    "dir": "img"
+  },
+  "mature-man": {
+    "src_w": 1122,
+    "src_h": 1402,
+    "variants": [
+      {
+        "file": "mature-man.webp",
+        "w": 1100,
+        "h": 1375
+      },
+      {
+        "file": "mature-man-sm.webp",
+        "w": 604,
+        "h": 755
+      }
+    ],
+    "dir": "img"
+  },
+  "happy-couple": {
+    "src_w": 1122,
+    "src_h": 1402,
+    "variants": [
+      {
+        "file": "happy-couple.webp",
+        "w": 1122,
+        "h": 1402
+      },
+      {
+        "file": "happy-couple-sm.webp",
+        "w": 716,
+        "h": 895
+      }
+    ],
+    "dir": "img"
+  },
+  "product-usage": {
+    "src_w": 1122,
+    "src_h": 1402,
+    "variants": [
+      {
+        "file": "product-usage.webp",
+        "w": 1100,
+        "h": 1375
+      },
+      {
+        "file": "product-usage-sm.webp",
+        "w": 604,
+        "h": 755
+      }
+    ],
+    "dir": "img"
+  },
+  "discreet-delivery": {
+    "src_w": 1122,
+    "src_h": 1402,
+    "variants": [
+      {
+        "file": "discreet-delivery.webp",
+        "w": 1122,
+        "h": 1402
+      },
+      {
+        "file": "discreet-delivery-sm.webp",
+        "w": 716,
+        "h": 895
+      }
+    ],
+    "dir": "img"
+  },
+  "bundle-one": {
+    "src_w": 1240,
+    "src_h": 1233,
+    "variants": [
+      {
+        "file": "bundle-one.webp",
+        "w": 760,
+        "h": 756
+      }
+    ],
+    "dir": "img"
+  },
+  "bundle-two": {
+    "src_w": 1234,
+    "src_h": 1238,
+    "variants": [
+      {
+        "file": "bundle-two.webp",
+        "w": 760,
+        "h": 762
+      }
+    ],
+    "dir": "img"
+  },
+  "bundle-three": {
+    "src_w": 1253,
+    "src_h": 1223,
+    "variants": [
+      {
+        "file": "bundle-three.webp",
+        "w": 760,
+        "h": 742
+      }
+    ],
+    "dir": "img"
+  },
+  "reserve-ingredients": {
+    "src_w": 1122,
+    "src_h": 1402,
+    "variants": [
+      {
+        "file": "reserve-ingredients.webp",
+        "w": 1100,
+        "h": 1375
+      },
+      {
+        "file": "reserve-ingredients-sm.webp",
+        "w": 604,
+        "h": 755
+      }
+    ],
+    "dir": "reserve"
+  },
+  "reserve-refund-badge": {
+    "src_w": 1122,
+    "src_h": 1402,
+    "variants": [
+      {
+        "file": "reserve-refund-badge.webp",
+        "w": 1100,
+        "h": 1375
+      },
+      {
+        "file": "reserve-refund-badge-sm.webp",
+        "w": 604,
+        "h": 755
+      }
+    ],
+    "dir": "reserve"
+  },
+  "reserve-package-podium": {
+    "src_w": 1122,
+    "src_h": 1402,
+    "variants": [
+      {
+        "file": "reserve-package-podium.webp",
+        "w": 1100,
+        "h": 1375
+      },
+      {
+        "file": "reserve-package-podium-sm.webp",
+        "w": 604,
+        "h": 755
+      }
+    ],
+    "dir": "reserve"
+  },
+  "reserve-payment-delivery": {
+    "src_w": 1122,
+    "src_h": 1402,
+    "variants": [
+      {
+        "file": "reserve-payment-delivery.webp",
+        "w": 1100,
+        "h": 1375
+      },
+      {
+        "file": "reserve-payment-delivery-sm.webp",
+        "w": 604,
+        "h": 755
+      }
+    ],
+    "dir": "reserve"
+  }
+}
