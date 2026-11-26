@@ -65,13 +65,7 @@
 
 <!-- 03 ========================================================= hero === -->
 <section class="hero">
-  <div class="hero-media">
-    <img src="assets/img/hero-dark.webp"
-         srcset="assets/img/hero-dark-sm.webp 1056w, assets/img/hero-dark.webp 1672w"
-         sizes="100vw" width="1672" height="941" fetchpriority="high" decoding="async"
-         alt="A bottle of Knack Extra Capsules lit against a dark background.">
-  </div>
-  <div class="wrap">
+  <div class="wrap hero-grid">
     <div class="hero-copy">
       <p class="eyebrow">Men's personal wellness</p>
       <h1 class="display h-xl">Personal wellness.<br><em class="gold">Informed choices.</em></h1>
@@ -92,6 +86,14 @@
         <li data-req="delivery.free"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Free nationwide delivery</li>
         <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>A person answers your call</li>
       </ul>
+    </div>
+
+    <div class="hero-art">
+      <img src="assets/img/hero-dark.webp"
+           srcset="assets/img/hero-dark-sm.webp 1056w, assets/img/hero-dark.webp 1672w"
+           sizes="(max-width:860px) 92vw, 46vw" width="1672" height="941"
+           fetchpriority="high" decoding="async"
+           alt="A bottle of Knack Extra Capsules lit against a dark background.">
     </div>
   </div>
 </section>
@@ -119,7 +121,7 @@
 </section>
 
 <!-- 05 =============================== problem / informed decisions === -->
-<section class="band on-light grain" id="about">
+<section class="band on-light" id="about">
   <div class="wrap">
     <div style="max-width:60ch;margin-bottom:clamp(20px,2.6vw,34px)">
       <p class="eyebrow">Let's talk about men's wellness</p>
@@ -166,6 +168,7 @@
     <h2 class="display h-lg">Some conversations deserve care and a bit of privacy.</h2>
   </div>
 </section>
+<section class="on-black">
 <div class="triptych">
   <figure class="tri-cell">
     <img src="assets/img/supportive-couple.webp" srcset="assets/img/supportive-couple-sm.webp 716w, assets/img/supportive-couple.webp 1122w" sizes="(max-width:760px) 50vw, 33vw" width="1122" height="1402" loading="lazy" decoding="async" alt="A couple sitting together on the edge of a bed, talking quietly.">
@@ -180,6 +183,7 @@
     <figcaption><h3>At any age</h3><p>Wellness is not a young man's subject, and it is nobody else's business.</p></figcaption>
   </figure>
 </div>
+</section>
 <section class="band-tight on-black rule-top">
   <div class="wrap" style="max-width:68ch">
     <p class="lede">Personal wellness is an ordinary part of adult life. Open conversation, clear product information and advice from a qualified professional will get you further than any sales page, this one included. The people in these photographs are models. They are here to illustrate the subject, not to tell you a product worked for them.</p>
@@ -189,7 +193,7 @@
 <!-- 07 ========================================= product introduction === -->
 <section class="split" id="product">
   <div class="split-media">
-    <img src="assets/img/product-hero.webp" srcset="assets/img/product-hero-sm.webp 660w, assets/img/product-hero.webp 1122w" sizes="(max-width:860px) 100vw, 50vw" width="1122" height="904" loading="lazy" decoding="async" alt="A bottle of Knack Extra Capsules photographed on a cream background with loose capsules beside it.">
+    <img src="assets/img/product-hero.webp" srcset="assets/img/product-hero-sm.webp 660w, assets/img/product-hero.webp 1122w" sizes="(max-width:860px) 100vw, 50vw" width="1122" height="1402" loading="lazy" decoding="async" alt="A bottle of Knack Extra Capsules photographed on a cream background with loose capsules beside it.">
   </div>
   <div class="split-body on-light">
     <div class="inner">
@@ -198,13 +202,7 @@
       <p class="lede" style="margin-top:.8rem">A herbal supplement sold to adult men in Nigeria. Everything we publish about it here comes from the product itself, and our team will answer anything else before you order.</p>
 
       <ul class="spec" id="spec-list"></ul>
-
-      <div class="notice">
-        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16h.01"/></svg>
-        <div>Read the label on the pack you receive and follow it. Our team can go through it with you on the phone first, and a pharmacist is the right person to ask about anything medical.</div>
-      </div>
-
-      <div style="margin-top:1.4rem;display:flex;gap:.7rem;flex-wrap:wrap">
+<div style="margin-top:1.4rem;display:flex;gap:.7rem;flex-wrap:wrap">
         <a href="#packages" class="btn">See the packages</a>
         <a href="#order" class="btn btn-ghost" data-support-link>Ask about the label</a>
       </div>
@@ -213,7 +211,7 @@
 </section>
 
 <!-- 08 =============================================== bento details === -->
-<section class="band on-ivory-deep grain">
+<section class="band on-ivory-deep">
   <div class="wrap">
     <div style="max-width:58ch;margin-bottom:clamp(18px,2.4vw,30px)">
       <p class="eyebrow">Before you order</p>
@@ -274,16 +272,12 @@
       <h2 class="display h-lg">Wellness is personal.<br><em>So is your choice.</em></h2>
       <p class="lede" style="margin-top:.8rem">Every adult weighs this differently. Some men want to read every line on a label first. Some want to ask a question on WhatsApp and decide in two minutes. Both are reasonable.</p>
       <p class="lede" style="margin-top:.8rem">What we owe you either way is a clear price, a real person to speak to, and no pressure. You are not being rushed, counted down or guilt-tripped on this page, and you will not be.</p>
-      <div class="notice">
-        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16h.01"/></svg>
-        <div id="medical-notice"></div>
-      </div>
-    </div>
+</div>
   </div>
 </section>
 
 <!-- 10 ===================================================== packages === -->
-<section class="band on-light grain" id="packages">
+<section class="band on-light" id="packages">
   <div class="wrap">
     <div style="max-width:56ch;margin-bottom:clamp(18px,2.4vw,30px)">
       <p class="eyebrow">Choose your package</p>
@@ -323,12 +317,7 @@
       <p class="eyebrow">Delivery and payment</p>
       <h2 class="display h-lg">Delivered plainly. Paid for on arrival.</h2>
       <ul class="spec" id="delivery-list"></ul>
-      <div class="notice" style="margin-top:1.2rem">
-        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><path d="M12 3 4 6.2V11c0 5 3.4 8.6 8 10 4.6-1.4 8-5 8-10V6.2Z"/></svg>
-        <div>We never ask for card or bank details on this website, and no one from our team will ever ask you for your PIN or an OTP. If someone claiming to be us does, it is not us.</div>
-      </div>
-
-      <h3 class="h-sm" style="margin-top:1.8rem">Returns</h3>
+<h3 class="h-sm" style="margin-top:1.8rem">Returns</h3>
       <p class="lede" style="margin-top:.5rem;font-size:.95rem" id="refund-copy"></p>
       <a href="policies.html#returns" class="btn btn-ghost" style="margin-top:1rem">Read the full policy</a>
     </div>
@@ -336,7 +325,7 @@
 </section>
 
 <!-- 13 ========================================================== FAQ === -->
-<section class="band on-light grain" id="faq">
+<section class="band on-light" id="faq">
   <div class="wrap faq-cols">
     <div>
       <p class="eyebrow">Questions</p>
@@ -439,17 +428,23 @@
 </section>
 
 <!-- 15 ==================================================== final CTA === -->
-<section class="final">
-  <div class="final-media">
-    <img src="assets/img/hero-dark-alt.webp" srcset="assets/img/hero-dark-alt-sm.webp 1056w, assets/img/hero-dark-alt.webp 1672w" sizes="100vw" width="1672" height="941" loading="lazy" decoding="async" alt="A bottle of Knack Extra Capsules lit against a dark background.">
-  </div>
-  <div class="wrap">
-    <p class="eyebrow" style="justify-content:center">Ready when you are</p>
-    <h2 class="display h-lg">Ready to place your order?</h2>
-    <p class="lede">Read the product details, pick the package that suits you, and pay the rider at your door.</p>
-    <div class="hero-actions">
-      <a href="#packages" class="btn btn-lg">Choose your package</a>
-      <a href="#" class="btn btn-lg btn-ghost" data-support-link>Talk to support</a>
+<section class="final band">
+  <div class="wrap final-grid">
+    <div class="final-art">
+      <img src="assets/img/hero-dark-alt.webp"
+           srcset="assets/img/hero-dark-alt-sm.webp 1056w, assets/img/hero-dark-alt.webp 1672w"
+           sizes="(max-width:860px) 92vw, 46vw" width="1672" height="941"
+           loading="lazy" decoding="async"
+           alt="A bottle of Knack Extra Capsules lit against a dark background.">
+    </div>
+    <div class="final-copy">
+      <p class="eyebrow">Ready when you are</p>
+      <h2 class="display h-lg">Ready to place your order?</h2>
+      <p class="lede">Read the product details, pick the package that suits you, and pay the rider at your door.</p>
+      <div class="hero-actions">
+        <a href="#packages" class="btn btn-lg">Choose your package</a>
+        <a href="#" class="btn btn-lg btn-ghost" data-support-link>Talk to support</a>
+      </div>
     </div>
   </div>
 </section>
