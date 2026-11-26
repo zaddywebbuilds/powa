@@ -68,7 +68,7 @@ who does the arithmetic has no reason to buy it. The site says so out loud,
 because hiding it would be worse. Decide a price for the 3-pack that beats
 ₦13,500 per bottle — around ₦37,999 — or drop the pack.
 
-- [ ] Agree the new price with the owner and update it in `/admin/`
+- [ ] Agree the new price with the owner and update `packages` in `config.js`
 
 ## 7. Reviews
 
@@ -130,7 +130,7 @@ Coded phrasing that means the same thing counts as the same claim.
 
 ## 10. Final pass
 
-- [ ] Open `/admin/` → Launch readiness, confirm everything is green
+- [ ] Re-read `config.js` top to bottom and confirm every `verified: true` has
+      a document behind it
 - [ ] Test an order on a real phone on mobile data, not just wifi
 - [ ] Check the policies page reads correctly with the real terms in place
-- [ ] Set `site.previewMode: false`

@@ -21,8 +21,6 @@ whatsapp: { value: "2348031234567", verified: true, label: "WhatsApp" },
 Digits only, country code first, no `+` and no spaces. Set `verified: true`.
 Do the same for `contact.phone` and `site.businessName`. Then commit and push.
 
-Or do it through the dashboard at `/admin/`, which writes the file for you.
-
 ---
 
 ## How it fits together
@@ -31,7 +29,6 @@ Or do it through the dashboard at `/admin/`, which writes the file for you.
 index.html            the sales page
 thank-you.html        order confirmation, reads sessionStorage, nothing in the URL
 policies.html         delivery, returns, privacy, terms
-admin/                owner dashboard: edits config.js, exports it for you to commit
 assets/js/config.js   >>> every price, policy and contact detail lives here <<<
 assets/js/site.js     renders the page from that config
 assets/css/site.css   design system
@@ -51,10 +48,7 @@ Fields are shaped `{ value, verified }`. **A field is only shown to customers
 when `verified` is true.** An unconfirmed fact is left off the page entirely.
 The site never fills a gap with a guess, and it never tells the visitor that a
 gap exists either: the section simply reads as though that line was never
-there.
-
-`site.previewMode` is a flag the `/admin/` readiness view reads. It puts
-nothing on the customer-facing pages.
+there. What is still outstanding is tracked in `LAUNCH-CHECKLIST.md`.
 
 ---
 

@@ -2,15 +2,12 @@
    KNACK EXTRA - SINGLE SOURCE OF TRUTH
    ----------------------------------------------------------------------------
    Every price, contact detail, policy and claim on this website is read from
-   this file. Nothing is hard-coded into the pages. Edit here, or use the
-   owner dashboard at /admin/ which writes this file for you.
+   this file. Nothing is hard-coded into the pages. Edit it here.
 
    RULES THIS FILE ENFORCES
    1. Any field with `verified: false` is NOT rendered on the public website.
-      It is listed in the dashboard as outstanding instead.
-   2. `site.previewMode: true` shows a pre-launch banner and lists what is
-      still missing. Set it to false only after the launch checklist is done.
-   3. Nothing in here may state a medical result, a cure, a timeframe for an
+      The page simply omits it rather than guessing or flagging a gap.
+   2. Nothing in here may state a medical result, a cure, a timeframe for an
       effect, or a clinical/regulatory approval that has not been evidenced.
       See LAUNCH-CHECKLIST.md.
    ========================================================================== */
@@ -19,10 +16,6 @@ window.KNACK = {
 
   /* ---------------------------------------------------------------- site -- */
   site: {
-    // Pre-launch gate. true  = staging banner on, outstanding items listed.
-    //                 false = live commercial mode.
-    previewMode: true,
-
     brand: "Knack Extra",
     wordmark: "KNACK EXTRA",
     // Legal entity that sells the product. Required before launch.
