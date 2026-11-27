@@ -262,6 +262,22 @@
     return C.packages.filter(function (p) { return p.id === id; })[0] || null;
   }
 
+  // A package thumbnail is 94px wide on a phone and 316px on a desktop, so it
+  // gets the same treatment as the rest of the page: one named file per band
+  // rather than one file for every screen. Serving the 760px art here was
+  // costing about 250 KB for three postage stamps.
+  // tools/build_responsive.py asserts that these three widths still exist.
+  function pkgPicture(p) {
+    var alt = esc(p.qty + (p.qty > 1 ? ' bottles' : ' bottle') + ' of Knack Extra Capsules');
+    var base = IMG + p.image;
+    return '<picture>' +
+      '<source media="(max-width:680px)" srcset="' + base + '-160.webp">' +
+      '<source media="(max-width:900px)" srcset="' + base + '-200.webp">' +
+      '<img src="' + base + '-680.webp" width="680" height="676" ' +
+      'loading="lazy" decoding="async" alt="' + alt + '">' +
+      '</picture>';
+  }
+
   function renderPackages() {
     var grid = $('#pkg-grid');
     if (!grid) return;
@@ -281,8 +297,7 @@
 
       btn.innerHTML =
         badge +
-        '<div class="pkg-img"><img src="' + IMG + p.image + '.webp" width="380" height="380" loading="lazy" decoding="async" alt="' +
-          esc(p.qty + (p.qty > 1 ? ' bottles' : ' bottle') + ' of Knack Extra Capsules') + '"></div>' +
+        '<div class="pkg-img">' + pkgPicture(p) + '</div>' +
         '<div class="pkg-body">' +
           '<div class="qty">' + p.qty + (p.qty > 1 ? ' bottles' : ' bottle') + '</div>' +
           '<h3>' + esc(p.name) + '</h3>' +
@@ -347,7 +362,7 @@
     set('#sum-total', fee === null ? money(total) + '*' : money(total));
 
     var img = $('#sum-img');
-    if (img) { img.src = IMG + selected.image + '.webp'; img.alt = ''; }
+    if (img) { img.src = IMG + selected.image + '-160.webp'; img.alt = ''; }
 
     syncOrderForm();
 
@@ -685,9 +700,30 @@
   // than with an autoplay attribute: anyone who has asked their system for
   // reduced motion keeps the still poster frame, and so does anyone without
   // JavaScript. It is silent and has no controls either way.
+  // True when the visitor or their network has asked for less data: the
+  // Save-Data header, or a connection the browser reports as 2g.
+  function dataSaver() {
+    var c = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+    if (!c) return false;
+    if (c.saveData) return true;
+    return /(^|-)2g$/.test(c.effectiveType || '');
+  }
+
+  // The hero clip carries no information, so it is loaded from here rather
+  // than by the markup: the <video> has no src until this runs, which means
+  // reduced motion, Save-Data and a 2g connection cost nothing at all beyond
+  // the 12 KB poster. Everyone else gets a file sized for their screen, 135 KB
+  // on a phone against 702 KB on a desktop.
   function wireHeroVideo() {
     var v = $('.hero-video');
-    if (!v || prefersReduced()) return;
+    if (!v) return;
+    if (prefersReduced() || dataSaver()) return;
+
+    var small = window.matchMedia('(max-width:700px)').matches;
+    var src = (small && v.dataset.srcSm) ? v.dataset.srcSm : v.dataset.src;
+    if (!src) return;
+
+    v.src = src;
     v.muted = true;
     var p = v.play();
     if (p && p.catch) p.catch(function () { /* browser declined; poster stays */ });

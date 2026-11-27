@@ -1,310 +1,445 @@
 {
-  "hero-dark": {
-    "src_w": 1672,
-    "src_h": 941,
-    "variants": [
-      {
-        "file": "hero-dark.webp",
-        "w": 1672,
-        "h": 941
-      },
-      {
-        "file": "hero-dark-sm.webp",
-        "w": 1056,
-        "h": 594
-      }
-    ],
-    "dir": "img"
-  },
-  "hero-dark-alt": {
-    "src_w": 1672,
-    "src_h": 941,
-    "variants": [
-      {
-        "file": "hero-dark-alt.webp",
-        "w": 1672,
-        "h": 941
-      },
-      {
-        "file": "hero-dark-alt-sm.webp",
-        "w": 1056,
-        "h": 594
-      }
-    ],
-    "dir": "img"
-  },
-  "product-hero": {
-    "src_w": 1122,
-    "src_h": 1402,
-    "variants": [
-      {
-        "file": "product-hero.webp",
-        "w": 1122,
-        "h": 1402
-      },
-      {
-        "file": "product-hero-sm.webp",
-        "w": 660,
-        "h": 825
-      }
-    ],
-    "dir": "img"
-  },
-  "thoughtful-man": {
-    "src_w": 1122,
-    "src_h": 1402,
-    "variants": [
-      {
-        "file": "thoughtful-man.webp",
-        "w": 1100,
-        "h": 1375
-      },
-      {
-        "file": "thoughtful-man-sm.webp",
-        "w": 604,
-        "h": 755
-      }
-    ],
-    "dir": "img"
-  },
-  "researching-man": {
-    "src_w": 1122,
-    "src_h": 1402,
-    "variants": [
-      {
-        "file": "researching-man.webp",
-        "w": 1100,
-        "h": 1375
-      },
-      {
-        "file": "researching-man-sm.webp",
-        "w": 604,
-        "h": 755
-      }
-    ],
-    "dir": "img"
-  },
-  "supportive-couple": {
-    "src_w": 1122,
-    "src_h": 1402,
-    "variants": [
-      {
-        "file": "supportive-couple.webp",
-        "w": 1122,
-        "h": 1402
-      },
-      {
-        "file": "supportive-couple-sm.webp",
-        "w": 716,
-        "h": 895
-      }
-    ],
-    "dir": "img"
-  },
-  "trusted-friends": {
-    "src_w": 1122,
-    "src_h": 1402,
-    "variants": [
-      {
-        "file": "trusted-friends.webp",
-        "w": 1100,
-        "h": 1375
-      },
-      {
-        "file": "trusted-friends-sm.webp",
-        "w": 604,
-        "h": 755
-      }
-    ],
-    "dir": "img"
-  },
-  "confident-man": {
-    "src_w": 1122,
-    "src_h": 1402,
-    "variants": [
-      {
-        "file": "confident-man.webp",
-        "w": 1122,
-        "h": 1402
-      },
-      {
-        "file": "confident-man-sm.webp",
-        "w": 716,
-        "h": 895
-      }
-    ],
-    "dir": "img"
-  },
-  "mature-man": {
-    "src_w": 1122,
-    "src_h": 1402,
-    "variants": [
-      {
-        "file": "mature-man.webp",
-        "w": 1100,
-        "h": 1375
-      },
-      {
-        "file": "mature-man-sm.webp",
-        "w": 604,
-        "h": 755
-      }
-    ],
-    "dir": "img"
-  },
-  "happy-couple": {
-    "src_w": 1122,
-    "src_h": 1402,
-    "variants": [
-      {
-        "file": "happy-couple.webp",
-        "w": 1122,
-        "h": 1402
-      },
-      {
-        "file": "happy-couple-sm.webp",
-        "w": 716,
-        "h": 895
-      }
-    ],
-    "dir": "img"
-  },
-  "product-usage": {
-    "src_w": 1122,
-    "src_h": 1402,
-    "variants": [
-      {
-        "file": "product-usage.webp",
-        "w": 1100,
-        "h": 1375
-      },
-      {
-        "file": "product-usage-sm.webp",
-        "w": 604,
-        "h": 755
-      }
-    ],
-    "dir": "img"
-  },
-  "discreet-delivery": {
-    "src_w": 1122,
-    "src_h": 1402,
-    "variants": [
-      {
-        "file": "discreet-delivery.webp",
-        "w": 1122,
-        "h": 1402
-      },
-      {
-        "file": "discreet-delivery-sm.webp",
-        "w": 716,
-        "h": 895
-      }
-    ],
-    "dir": "img"
-  },
-  "bundle-one": {
-    "src_w": 1240,
-    "src_h": 1233,
-    "variants": [
-      {
-        "file": "bundle-one.webp",
-        "w": 760,
-        "h": 756
-      }
-    ],
-    "dir": "img"
-  },
-  "bundle-two": {
-    "src_w": 1234,
-    "src_h": 1238,
-    "variants": [
-      {
-        "file": "bundle-two.webp",
-        "w": 760,
-        "h": 762
-      }
-    ],
-    "dir": "img"
-  },
-  "bundle-three": {
-    "src_w": 1253,
-    "src_h": 1223,
-    "variants": [
-      {
-        "file": "bundle-three.webp",
-        "w": 760,
-        "h": 742
-      }
-    ],
-    "dir": "img"
-  },
-  "reserve-ingredients": {
-    "src_w": 1122,
-    "src_h": 1402,
-    "variants": [
-      {
-        "file": "reserve-ingredients.webp",
-        "w": 1100,
-        "h": 1375
-      },
-      {
-        "file": "reserve-ingredients-sm.webp",
-        "w": 604,
-        "h": 755
-      }
-    ],
-    "dir": "reserve"
-  },
-  "returns-badge": {
-    "src_w": 1122,
-    "src_h": 1402,
-    "variants": [
-      {
-        "file": "returns-badge.webp",
-        "w": 1100,
-        "h": 1375
-      },
-      {
-        "file": "returns-badge-sm.webp",
-        "w": 604,
-        "h": 755
-      }
-    ],
-    "dir": "img"
-  },
-  "package-podium": {
-    "src_w": 1122,
-    "src_h": 1402,
-    "variants": [
-      {
-        "file": "package-podium.webp",
-        "w": 1100,
-        "h": 1375
-      },
-      {
-        "file": "package-podium-sm.webp",
-        "w": 604,
-        "h": 755
-      }
-    ],
-    "dir": "img"
-  },
-  "doorstep-handover": {
-    "src_w": 778,
-    "src_h": 1615,
-    "variants": [
-      {
-        "file": "doorstep-handover.webp",
-        "w": 778,
-        "h": 1615
-      },
-      {
-        "file": "doorstep-handover-sm.webp",
-        "w": 468,
-        "h": 971
-      }
-    ],
-    "dir": "img"
-  }
+ "hero-dark": {
+  "src_w": 1672,
+  "src_h": 941,
+  "variants": [
+   {
+    "file": "hero-dark-480.webp",
+    "w": 480,
+    "h": 270
+   },
+   {
+    "file": "hero-dark-680.webp",
+    "w": 680,
+    "h": 383
+   },
+   {
+    "file": "hero-dark-820.webp",
+    "w": 820,
+    "h": 461
+   },
+   {
+    "file": "hero-dark-1200.webp",
+    "w": 1200,
+    "h": 675
+   }
+  ],
+  "dir": "img"
+ },
+ "hero-dark-alt": {
+  "src_w": 1672,
+  "src_h": 941,
+  "variants": [
+   {
+    "file": "hero-dark-alt-560.webp",
+    "w": 560,
+    "h": 315
+   },
+   {
+    "file": "hero-dark-alt-1000.webp",
+    "w": 1000,
+    "h": 563
+   },
+   {
+    "file": "hero-dark-alt-1200.webp",
+    "w": 1200,
+    "h": 675
+   }
+  ],
+  "dir": "img"
+ },
+ "product-hero": {
+  "src_w": 1122,
+  "src_h": 1402,
+  "variants": [
+   {
+    "file": "product-hero-560.webp",
+    "w": 560,
+    "h": 700
+   },
+   {
+    "file": "product-hero-1000.webp",
+    "w": 1000,
+    "h": 1250
+   },
+   {
+    "file": "product-hero.webp",
+    "w": 1122,
+    "h": 1402
+   }
+  ],
+  "dir": "img"
+ },
+ "thoughtful-man": {
+  "src_w": 1122,
+  "src_h": 1402,
+  "variants": [
+   {
+    "file": "thoughtful-man-320.webp",
+    "w": 320,
+    "h": 400
+   },
+   {
+    "file": "thoughtful-man-480.webp",
+    "w": 480,
+    "h": 600
+   },
+   {
+    "file": "thoughtful-man-560.webp",
+    "w": 560,
+    "h": 700
+   }
+  ],
+  "dir": "img"
+ },
+ "researching-man": {
+  "src_w": 1122,
+  "src_h": 1402,
+  "variants": [
+   {
+    "file": "researching-man-320.webp",
+    "w": 320,
+    "h": 400
+   },
+   {
+    "file": "researching-man-480.webp",
+    "w": 480,
+    "h": 600
+   },
+   {
+    "file": "researching-man-560.webp",
+    "w": 560,
+    "h": 700
+   }
+  ],
+  "dir": "img"
+ },
+ "supportive-couple": {
+  "src_w": 1122,
+  "src_h": 1402,
+  "variants": [
+   {
+    "file": "supportive-couple-400.webp",
+    "w": 400,
+    "h": 500
+   },
+   {
+    "file": "supportive-couple-560.webp",
+    "w": 560,
+    "h": 700
+   },
+   {
+    "file": "supportive-couple-820.webp",
+    "w": 820,
+    "h": 1025
+   },
+   {
+    "file": "supportive-couple-1000.webp",
+    "w": 1000,
+    "h": 1250
+   }
+  ],
+  "dir": "img"
+ },
+ "trusted-friends": {
+  "src_w": 1122,
+  "src_h": 1402,
+  "variants": [
+   {
+    "file": "trusted-friends-400.webp",
+    "w": 400,
+    "h": 500
+   },
+   {
+    "file": "trusted-friends-560.webp",
+    "w": 560,
+    "h": 700
+   },
+   {
+    "file": "trusted-friends-820.webp",
+    "w": 820,
+    "h": 1025
+   },
+   {
+    "file": "trusted-friends-1000.webp",
+    "w": 1000,
+    "h": 1250
+   }
+  ],
+  "dir": "img"
+ },
+ "confident-man": {
+  "src_w": 1122,
+  "src_h": 1402,
+  "variants": [
+   {
+    "file": "confident-man-560.webp",
+    "w": 560,
+    "h": 700
+   },
+   {
+    "file": "confident-man-1000.webp",
+    "w": 1000,
+    "h": 1250
+   },
+   {
+    "file": "confident-man.webp",
+    "w": 1122,
+    "h": 1402
+   }
+  ],
+  "dir": "img"
+ },
+ "mature-man": {
+  "src_w": 1122,
+  "src_h": 1402,
+  "variants": [
+   {
+    "file": "mature-man-400.webp",
+    "w": 400,
+    "h": 500
+   },
+   {
+    "file": "mature-man-560.webp",
+    "w": 560,
+    "h": 700
+   },
+   {
+    "file": "mature-man-820.webp",
+    "w": 820,
+    "h": 1025
+   },
+   {
+    "file": "mature-man-1000.webp",
+    "w": 1000,
+    "h": 1250
+   }
+  ],
+  "dir": "img"
+ },
+ "happy-couple": {
+  "src_w": 1122,
+  "src_h": 1402,
+  "variants": [
+   {
+    "file": "happy-couple-560.webp",
+    "w": 560,
+    "h": 700
+   },
+   {
+    "file": "happy-couple-680.webp",
+    "w": 680,
+    "h": 850
+   },
+   {
+    "file": "happy-couple-820.webp",
+    "w": 820,
+    "h": 1025
+   },
+   {
+    "file": "happy-couple-1000.webp",
+    "w": 1000,
+    "h": 1250
+   }
+  ],
+  "dir": "img"
+ },
+ "product-usage": {
+  "src_w": 1122,
+  "src_h": 1402,
+  "variants": [
+   {
+    "file": "product-usage-560.webp",
+    "w": 560,
+    "h": 700
+   },
+   {
+    "file": "product-usage-680.webp",
+    "w": 680,
+    "h": 850
+   },
+   {
+    "file": "product-usage-820.webp",
+    "w": 820,
+    "h": 1025
+   },
+   {
+    "file": "product-usage-1000.webp",
+    "w": 1000,
+    "h": 1250
+   }
+  ],
+  "dir": "img"
+ },
+ "discreet-delivery": {
+  "src_w": 1122,
+  "src_h": 1402,
+  "variants": [
+   {
+    "file": "discreet-delivery-560.webp",
+    "w": 560,
+    "h": 700
+   },
+   {
+    "file": "discreet-delivery-1000.webp",
+    "w": 1000,
+    "h": 1250
+   },
+   {
+    "file": "discreet-delivery.webp",
+    "w": 1122,
+    "h": 1402
+   }
+  ],
+  "dir": "img"
+ },
+ "bundle-one": {
+  "src_w": 1240,
+  "src_h": 1233,
+  "variants": [
+   {
+    "file": "bundle-one-160.webp",
+    "w": 160,
+    "h": 159
+   },
+   {
+    "file": "bundle-one-200.webp",
+    "w": 200,
+    "h": 199
+   },
+   {
+    "file": "bundle-one-680.webp",
+    "w": 680,
+    "h": 676
+   }
+  ],
+  "dir": "img"
+ },
+ "bundle-two": {
+  "src_w": 1234,
+  "src_h": 1238,
+  "variants": [
+   {
+    "file": "bundle-two-160.webp",
+    "w": 160,
+    "h": 160
+   },
+   {
+    "file": "bundle-two-200.webp",
+    "w": 200,
+    "h": 201
+   },
+   {
+    "file": "bundle-two-680.webp",
+    "w": 680,
+    "h": 682
+   }
+  ],
+  "dir": "img"
+ },
+ "bundle-three": {
+  "src_w": 1253,
+  "src_h": 1223,
+  "variants": [
+   {
+    "file": "bundle-three-160.webp",
+    "w": 160,
+    "h": 156
+   },
+   {
+    "file": "bundle-three-200.webp",
+    "w": 200,
+    "h": 195
+   },
+   {
+    "file": "bundle-three-680.webp",
+    "w": 680,
+    "h": 664
+   }
+  ],
+  "dir": "img"
+ },
+ "reserve-ingredients": {
+  "src_w": 1122,
+  "src_h": 1402,
+  "variants": [
+   {
+    "file": "reserve-ingredients.webp",
+    "w": 1100,
+    "h": 1375
+   },
+   {
+    "file": "reserve-ingredients-sm.webp",
+    "w": 604,
+    "h": 755
+   }
+  ],
+  "dir": "reserve"
+ },
+ "returns-badge": {
+  "src_w": 1122,
+  "src_h": 1402,
+  "variants": [
+   {
+    "file": "returns-badge-480.webp",
+    "w": 480,
+    "h": 600
+   },
+   {
+    "file": "returns-badge-820.webp",
+    "w": 820,
+    "h": 1025
+   },
+   {
+    "file": "returns-badge.webp",
+    "w": 1100,
+    "h": 1375
+   }
+  ],
+  "dir": "img"
+ },
+ "package-podium": {
+  "src_w": 1122,
+  "src_h": 1402,
+  "variants": [
+   {
+    "file": "package-podium-480.webp",
+    "w": 480,
+    "h": 600
+   },
+   {
+    "file": "package-podium-820.webp",
+    "w": 820,
+    "h": 1025
+   },
+   {
+    "file": "package-podium.webp",
+    "w": 1100,
+    "h": 1375
+   }
+  ],
+  "dir": "img"
+ },
+ "doorstep-handover": {
+  "src_w": 778,
+  "src_h": 1615,
+  "variants": [
+   {
+    "file": "doorstep-handover-560.webp",
+    "w": 560,
+    "h": 1162
+   },
+   {
+    "file": "doorstep-handover-680.webp",
+    "w": 680,
+    "h": 1412
+   },
+   {
+    "file": "doorstep-handover.webp",
+    "w": 778,
+    "h": 1615
+   }
+  ],
+  "dir": "img"
+ }
 }

@@ -34,6 +34,16 @@ SRC = 'source-art/hero-sprout-source.mp4'
 MP4 = 'assets/video/hero-sprout.mp4'
 POSTER = 'assets/img/hero-sprout-poster.webp'
 
+# 98% of the traffic is mobile, a lot of it on a weak connection, so the phone
+# gets its own encode rather than the desktop file. 480 wide covers a 360px
+# phone at a little over 1.3 device pixels per CSS pixel, which on moving
+# footage of soil is impossible to fault, and the higher CRF costs far less
+# than the width would. site.js chooses between them; see wireHeroVideo().
+MP4_SM = 'assets/video/hero-sprout-480.mp4'
+POSTER_SM = 'assets/img/hero-sprout-poster-480.webp'
+SM_WIDTH = 480
+SM_CRF = '31'
+
 CUT = 4.5    # last clean second before the lettering fades in (it starts 4.71)
 FADE = 0.8   # length of the dissolve that closes the loop
 
@@ -61,9 +71,23 @@ if __name__ == '__main__':
          '-c:v', 'libx264', '-profile:v', 'main', '-pix_fmt', 'yuv420p',
          '-crf', '25', '-preset', 'slow', '-g', '48',
          '-movflags', '+faststart', MP4])
+    # The phone encode comes off the same source, not off MP4, so it is not a
+    # re-compression of an already compressed file.
+    run(['ffmpeg', '-v', 'error', '-y', '-i', SRC,
+         '-filter_complex', FILTER + ';[v]scale=%d:-2[vs]' % SM_WIDTH,
+         '-map', '[vs]', '-an',
+         '-c:v', 'libx264', '-profile:v', 'main', '-pix_fmt', 'yuv420p',
+         '-crf', SM_CRF, '-preset', 'slow', '-g', '48',
+         '-movflags', '+faststart', MP4_SM])
+
     run(['ffmpeg', '-v', 'error', '-y', '-i', MP4,
          '-vf', r'select=eq(n\,0)', '-vframes', '1', 'poster.png'])
     Image.open('poster.png').save(POSTER, 'WEBP', quality=80, method=6)
+
+    im = Image.open('poster.png')
+    sm = im.resize((SM_WIDTH, round(im.height * SM_WIDTH / im.width)), Image.LANCZOS)
+    sm.save(POSTER_SM, 'WEBP', quality=72, method=6)
     os.remove('poster.png')
-    print('%s  %d bytes' % (MP4, os.path.getsize(MP4)))
-    print('%s  %d bytes' % (POSTER, os.path.getsize(POSTER)))
+
+    for f in (MP4, MP4_SM, POSTER, POSTER_SM):
+        print('%-42s %7d bytes' % (f, os.path.getsize(f)))

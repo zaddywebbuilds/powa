@@ -19,7 +19,7 @@
 <meta name="twitter:card" content="summary_large_image">
 
 <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
-<link rel="preload" as="image" href="assets/img/hero-sprout-poster.webp" fetchpriority="high">
+<link rel="preload" as="image" href="assets/img/hero-sprout-poster-480.webp" fetchpriority="high">
 <link rel="preload" as="font" type="font/woff2" href="assets/fonts/manrope-400.woff2" crossorigin>
 <link rel="preload" as="font" type="font/woff2" href="assets/fonts/playfair-500.woff2" crossorigin>
 <link rel="stylesheet" href="assets/css/site.css">
@@ -89,12 +89,12 @@
     </div>
 
     <div class="hero-art">
-      <video class="hero-video" poster="assets/img/hero-sprout-poster.webp"
-             width="752" height="416" muted loop playsinline preload="metadata"
+      <video class="hero-video" poster="assets/img/hero-sprout-poster-480.webp"
+             width="752" height="416" muted loop playsinline preload="none"
              disablepictureinpicture
-             aria-label="A seed germinating in dark soil and putting down roots.">
-        <source src="assets/video/hero-sprout.mp4" type="video/mp4">
-      </video>
+             data-src="assets/video/hero-sprout.mp4"
+             data-src-sm="assets/video/hero-sprout-480.mp4"
+             aria-label="A seed germinating in dark soil and putting down roots."></video>
     </div>
   </div>
 </section>
@@ -132,12 +132,12 @@
 
     <div class="grid problem-grid">
       <figure class="photo ratio-34" data-rise>
-        <img src="assets/img/thoughtful-man.webp" srcset="assets/img/thoughtful-man-sm.webp 604w, assets/img/thoughtful-man.webp 1100w" sizes="(max-width:560px) 92vw, (max-width:900px) 46vw, 26vw" width="1100" height="1375" loading="lazy" decoding="async" alt="A man sitting on the edge of a bed, thinking.">
+        <picture><source media="(max-width:420px)" srcset="assets/img/thoughtful-man-480.webp"><source media="(max-width:680px)" srcset="assets/img/thoughtful-man-320.webp"><source media="(max-width:900px)" srcset="assets/img/thoughtful-man-480.webp"><img src="assets/img/thoughtful-man-560.webp" srcset="assets/img/thoughtful-man-560.webp 560w" sizes="(max-width:1200px) 246px, 276px" width="560" height="700" loading="lazy" decoding="async" alt="A man sitting on the edge of a bed, thinking."></picture>
         <figcaption class="photo-cap">Nobody should have to guess their way through this.</figcaption>
       </figure>
 
       <figure class="photo ratio-34" data-rise style="--d:.08s">
-        <img src="assets/img/researching-man.webp" srcset="assets/img/researching-man-sm.webp 604w, assets/img/researching-man.webp 1100w" sizes="(max-width:900px) 46vw, 26vw" width="1100" height="1375" loading="lazy" decoding="async" alt="A man reading on his phone at home in the evening.">
+        <picture><source media="(max-width:420px)" srcset="assets/img/researching-man-480.webp"><source media="(max-width:680px)" srcset="assets/img/researching-man-320.webp"><source media="(max-width:900px)" srcset="assets/img/researching-man-480.webp"><img src="assets/img/researching-man-560.webp" srcset="assets/img/researching-man-560.webp 560w" sizes="(max-width:1200px) 246px, 276px" width="560" height="700" loading="lazy" decoding="async" alt="A man reading on his phone at home in the evening."></picture>
         <figcaption class="photo-cap">An hour of reading, and still no straight answer.</figcaption>
       </figure>
 
@@ -170,15 +170,15 @@
   </div>
   <div class="triptych">
   <figure class="tri-cell">
-    <img src="assets/img/supportive-couple.webp" srcset="assets/img/supportive-couple-sm.webp 716w, assets/img/supportive-couple.webp 1122w" sizes="(max-width:760px) 50vw, 33vw" width="1122" height="1402" loading="lazy" decoding="async" alt="A couple sitting together on the edge of a bed, talking quietly.">
+    <picture><source media="(max-width:420px)" srcset="assets/img/supportive-couple-560.webp"><source media="(max-width:680px)" srcset="assets/img/supportive-couple-1000.webp"><source media="(max-width:900px)" srcset="assets/img/supportive-couple-400.webp"><img src="assets/img/supportive-couple-1000.webp" srcset="assets/img/supportive-couple-820.webp 820w" sizes="(max-width:1200px) 363px, 389px" width="1000" height="1250" loading="lazy" decoding="async" alt="A couple sitting together on the edge of a bed, talking quietly."></picture>
     <figcaption><h3>At home</h3><p>The conversations that matter are rarely the loud ones.</p></figcaption>
   </figure>
   <figure class="tri-cell">
-    <img src="assets/img/trusted-friends.webp" srcset="assets/img/trusted-friends-sm.webp 604w, assets/img/trusted-friends.webp 1100w" sizes="(max-width:760px) 50vw, 33vw" width="1100" height="1375" loading="lazy" decoding="async" alt="Two friends sitting in a living room, one passing the other a wrapped parcel.">
+    <picture><source media="(max-width:420px)" srcset="assets/img/trusted-friends-560.webp"><source media="(max-width:680px)" srcset="assets/img/trusted-friends-1000.webp"><source media="(max-width:900px)" srcset="assets/img/trusted-friends-400.webp"><img src="assets/img/trusted-friends-1000.webp" srcset="assets/img/trusted-friends-820.webp 820w" sizes="(max-width:1200px) 363px, 389px" width="1000" height="1250" loading="lazy" decoding="async" alt="Two friends sitting in a living room, one passing the other a wrapped parcel."></picture>
     <figcaption><h3>Between friends</h3><p>Most men hear about a product from someone they trust, not an advert.</p></figcaption>
   </figure>
   <figure class="tri-cell">
-    <img src="assets/img/mature-man.webp" srcset="assets/img/mature-man-sm.webp 604w, assets/img/mature-man.webp 1100w" sizes="(max-width:760px) 100vw, 33vw" width="1100" height="1375" loading="lazy" decoding="async" alt="A man in his fifties relaxing on a sofa at home.">
+    <picture><source media="(max-width:420px)" srcset="assets/img/mature-man-560.webp"><source media="(max-width:680px)" srcset="assets/img/mature-man-1000.webp"><source media="(max-width:900px)" srcset="assets/img/mature-man-400.webp"><img src="assets/img/mature-man-1000.webp" srcset="assets/img/mature-man-820.webp 820w" sizes="(max-width:1200px) 363px, 389px" width="1000" height="1250" loading="lazy" decoding="async" alt="A man in his fifties relaxing on a sofa at home."></picture>
     <figcaption><h3>At any age</h3><p>Wellness is not a young man's subject, and it is nobody else's business.</p></figcaption>
   </figure>
 </div>
@@ -192,7 +192,7 @@
 <!-- 07 ========================================= product introduction === -->
 <section class="split" id="product">
   <div class="split-media">
-    <img src="assets/img/product-hero.webp" srcset="assets/img/product-hero-sm.webp 660w, assets/img/product-hero.webp 1122w" sizes="(max-width:860px) 100vw, 50vw" width="1122" height="1402" loading="lazy" decoding="async" alt="A bottle of Knack Extra Capsules photographed on a cream background with loose capsules beside it.">
+    <picture><source media="(max-width:420px)" srcset="assets/img/product-hero-560.webp"><source media="(max-width:680px)" srcset="assets/img/product-hero-1000.webp"><source media="(max-width:900px)" srcset="assets/img/product-hero.webp"><img src="assets/img/product-hero.webp" srcset="assets/img/product-hero.webp 1122w" sizes="(max-width:1200px) 566px, 683px" width="1122" height="1402" loading="lazy" decoding="async" alt="A bottle of Knack Extra Capsules photographed on a cream background with loose capsules beside it."></picture>
   </div>
   <div class="split-body on-light">
     <div class="inner">
@@ -219,7 +219,7 @@
 
     <div class="grid bento">
       <article class="bento-card bento-a" data-rise>
-        <div class="media"><img src="assets/img/product-usage.webp" srcset="assets/img/product-usage-sm.webp 604w, assets/img/product-usage.webp 1100w" sizes="(max-width:620px) 92vw, 48vw" width="1100" height="1375" loading="lazy" decoding="async" alt="A bottle of Knack Extra on a bedside table beside a glass of water."></div>
+        <div class="media"><picture><source media="(max-width:420px)" srcset="assets/img/product-usage-560.webp"><source media="(max-width:680px)" srcset="assets/img/product-usage-1000.webp"><source media="(max-width:900px)" srcset="assets/img/product-usage-680.webp"><img src="assets/img/product-usage-1000.webp" srcset="assets/img/product-usage-820.webp 820w" sizes="(max-width:1200px) 363px, 389px" width="1000" height="1250" loading="lazy" decoding="async" alt="A bottle of Knack Extra on a bedside table beside a glass of water."></picture></div>
         <div class="pad">
           <h3>Responsible use</h3>
           <p>Follow the directions printed on the pack you receive, not a dosage you read in an advert. If the label is unclear, ask a pharmacist before you take it. We will not invent instructions to fill a gap.</p>
@@ -234,7 +234,7 @@
       </article>
 
       <article class="bento-card bento-d" data-rise style="--d:.14s">
-        <div class="media"><img src="assets/img/happy-couple.webp" srcset="assets/img/happy-couple-sm.webp 716w, assets/img/happy-couple.webp 1122w" sizes="(max-width:620px) 92vw, 24vw" width="1122" height="1402" loading="lazy" decoding="async" alt="A couple sitting close together on a sofa at home in the evening."></div>
+        <div class="media"><picture><source media="(max-width:420px)" srcset="assets/img/happy-couple-560.webp"><source media="(max-width:680px)" srcset="assets/img/happy-couple-1000.webp"><source media="(max-width:900px)" srcset="assets/img/happy-couple-680.webp"><img src="assets/img/happy-couple-1000.webp" srcset="assets/img/happy-couple-820.webp 820w" sizes="(max-width:1200px) 363px, 389px" width="1000" height="1250" loading="lazy" decoding="async" alt="A couple sitting close together on a sofa at home in the evening."></picture></div>
       </article>
 
       <article class="bento-card bento-e" data-rise style="--d:.18s">
@@ -251,7 +251,7 @@
       </article>
 
       <article class="bento-card bento-f" data-rise style="--d:.22s">
-        <div class="media"><img src="assets/img/doorstep-handover.webp" srcset="assets/img/doorstep-handover-sm.webp 468w, assets/img/doorstep-handover.webp 778w" sizes="(max-width:620px) 92vw, 24vw" width="778" height="1615" loading="lazy" decoding="async" alt="A man at his own front door holding the parcel he has just taken delivery of."></div>
+        <div class="media"><picture><source media="(max-width:420px)" srcset="assets/img/doorstep-handover-560.webp"><source media="(max-width:680px)" srcset="assets/img/doorstep-handover.webp"><source media="(max-width:900px)" srcset="assets/img/doorstep-handover-680.webp"><img src="assets/img/doorstep-handover.webp" srcset="assets/img/doorstep-handover.webp 778w" sizes="(max-width:1200px) 363px, 389px" width="778" height="1615" loading="lazy" decoding="async" alt="A man at his own front door holding the parcel he has just taken delivery of."></picture></div>
       </article>
     </div>
   </div>
@@ -260,7 +260,7 @@
 <!-- 09 ===================================== lifestyle, choice is yours === -->
 <section class="split split-rev">
   <div class="split-media">
-    <img src="assets/img/confident-man.webp" srcset="assets/img/confident-man-sm.webp 716w, assets/img/confident-man.webp 1122w" sizes="(max-width:860px) 100vw, 50vw" width="1122" height="1402" loading="lazy" decoding="async" alt="A man relaxing on a sofa at home, a bottle of Knack Extra on the side table.">
+    <picture><source media="(max-width:420px)" srcset="assets/img/confident-man-560.webp"><source media="(max-width:680px)" srcset="assets/img/confident-man-1000.webp"><source media="(max-width:900px)" srcset="assets/img/confident-man.webp"><img src="assets/img/confident-man.webp" srcset="assets/img/confident-man.webp 1122w" sizes="(max-width:1200px) 566px, 683px" width="1122" height="1402" loading="lazy" decoding="async" alt="A man relaxing on a sofa at home, a bottle of Knack Extra on the side table."></picture>
   </div>
   <div class="split-body on-dark">
     <div class="inner">
@@ -294,7 +294,7 @@
       <p class="eyebrow">Convenient ordering</p>
       <h2 class="display h-lg">From your order to your doorstep.</h2>
       <figure class="col-art">
-        <img src="assets/img/hero-dark.webp" srcset="assets/img/hero-dark-sm.webp 1056w, assets/img/hero-dark.webp 1672w" sizes="(max-width:860px) 92vw, 30vw" width="1672" height="941" loading="lazy" decoding="async" alt="A bottle of Knack Extra Capsules lit against a dark background with loose capsules beside it.">
+        <picture><source media="(max-width:420px)" srcset="assets/img/hero-dark-480.webp"><source media="(max-width:680px)" srcset="assets/img/hero-dark-820.webp"><source media="(max-width:900px)" srcset="assets/img/hero-dark-1200.webp"><img src="assets/img/hero-dark-1200.webp" srcset="assets/img/hero-dark-680.webp 680w, assets/img/hero-dark-820.webp 820w" sizes="(max-width:1200px) 311px, 344px" width="1200" height="675" loading="lazy" decoding="async" alt="A bottle of Knack Extra Capsules lit against a dark background with loose capsules beside it."></picture>
       </figure>
     </div>
     <div class="grid steps">
@@ -309,7 +309,7 @@
 <!-- 12 ========================================== delivery & payment === -->
 <section class="split" id="delivery">
   <div class="split-media">
-    <img src="assets/img/discreet-delivery.webp" srcset="assets/img/discreet-delivery-sm.webp 716w, assets/img/discreet-delivery.webp 1122w" sizes="(max-width:860px) 100vw, 50vw" width="1122" height="1402" loading="lazy" decoding="async" alt="A courier handing a plain cardboard parcel to a customer at his front door.">
+    <picture><source media="(max-width:420px)" srcset="assets/img/discreet-delivery-560.webp"><source media="(max-width:680px)" srcset="assets/img/discreet-delivery-1000.webp"><source media="(max-width:900px)" srcset="assets/img/discreet-delivery.webp"><img src="assets/img/discreet-delivery.webp" srcset="assets/img/discreet-delivery.webp 1122w" sizes="(max-width:1200px) 566px, 683px" width="1122" height="1402" loading="lazy" decoding="async" alt="A courier handing a plain cardboard parcel to a customer at his front door."></picture>
   </div>
   <div class="split-body on-black">
     <div class="inner">
@@ -332,7 +332,7 @@
       <p class="lede" style="margin-top:.8rem">The things people ask us most, answered plainly. Anything else, put it to our team and you will get a straight reply.</p>
       <a href="#" class="btn" style="margin-top:1.1rem" data-support-link>Ask a question</a>
       <figure class="col-art">
-        <img src="assets/img/package-podium.webp" srcset="assets/img/package-podium-sm.webp 604w, assets/img/package-podium.webp 1100w" sizes="(max-width:860px) 92vw, 34vw" width="1100" height="1375" loading="lazy" decoding="async" alt="The one, two and three bottle packages of Knack Extra standing side by side.">
+        <picture><source media="(max-width:420px)" srcset="assets/img/package-podium-480.webp"><source media="(max-width:680px)" srcset="assets/img/package-podium-820.webp"><source media="(max-width:900px)" srcset="assets/img/package-podium.webp"><img src="assets/img/package-podium.webp" srcset="assets/img/package-podium-820.webp 820w" sizes="(max-width:1200px) 371px, 409px" width="1100" height="1375" loading="lazy" decoding="async" alt="The one, two and three bottle packages of Knack Extra standing side by side."></picture>
       </figure>
     </div>
     <div class="faq" id="faq-list"></div>
@@ -417,7 +417,7 @@
       <aside class="summary" aria-label="Order summary">
         <h3>Order summary</h3>
         <div class="thumb">
-          <img id="sum-img" src="assets/img/bundle-one.webp" width="54" height="54" alt="" loading="lazy">
+          <img id="sum-img" src="assets/img/bundle-one-160.webp" width="54" height="54" alt="" loading="lazy">
           <div><strong id="sum-name">Single Bottle</strong><span id="sum-qty">1 bottle</span></div>
         </div>
         <div class="row"><span class="k">Unit price</span><span class="v" id="sum-unit"></span></div>
@@ -427,7 +427,7 @@
         <p class="mini" id="sum-note"></p>
       </aside>
       <figure class="col-art">
-        <img src="assets/img/returns-badge.webp" srcset="assets/img/returns-badge-sm.webp 604w, assets/img/returns-badge.webp 1100w" sizes="(max-width:900px) 92vw, 32vw" width="1100" height="1375" loading="lazy" decoding="async" alt="A bottle of Knack Extra beside a badge reading returns, 14 days from delivery.">
+        <picture><source media="(max-width:420px)" srcset="assets/img/returns-badge-480.webp"><source media="(max-width:680px)" srcset="assets/img/returns-badge-820.webp"><source media="(max-width:900px)" srcset="assets/img/returns-badge.webp"><img src="assets/img/returns-badge.webp" srcset="assets/img/returns-badge-820.webp 820w" sizes="(max-width:1200px) 353px, 390px" width="1100" height="1375" loading="lazy" decoding="async" alt="A bottle of Knack Extra beside a badge reading returns, 14 days from delivery."></picture>
       </figure>
       </div>
     </div>
@@ -438,11 +438,11 @@
 <section class="final band">
   <div class="wrap final-grid">
     <div class="final-art">
-      <img src="assets/img/hero-dark-alt.webp"
-           srcset="assets/img/hero-dark-alt-sm.webp 1056w, assets/img/hero-dark-alt.webp 1672w"
-           sizes="(max-width:860px) 92vw, 46vw" width="1672" height="941"
+      <picture><source media="(max-width:420px)" srcset="assets/img/hero-dark-alt-560.webp"><source media="(max-width:680px)" srcset="assets/img/hero-dark-alt-1000.webp"><source media="(max-width:900px)" srcset="assets/img/hero-dark-alt-1200.webp"><img src="assets/img/hero-dark-alt-1200.webp"
+           srcset="assets/img/hero-dark-alt-1200.webp 1200w"
+           sizes="(max-width:1200px) 516px, 552px" width="1200" height="675"
            loading="lazy" decoding="async"
-           alt="A bottle of Knack Extra Capsules lit against a dark background.">
+           alt="A bottle of Knack Extra Capsules lit against a dark background."></picture>
     </div>
     <div class="final-copy">
       <p class="eyebrow">Ready when you are</p>

@@ -54,8 +54,8 @@ function ke_paths() {
 /**
  * Styles and scripts.
  *
- * site.css pulls the fonts in with an @import, exactly as it does on the
- * static build, so the font stylesheet is not enqueued separately.
+ * The @font-face rules are inlined at the top of site.css, so there is no
+ * separate font stylesheet to enqueue and no @import round trip.
  */
 function knack_enqueue() {
 	wp_enqueue_style(

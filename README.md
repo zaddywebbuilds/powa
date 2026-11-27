@@ -135,6 +135,58 @@ The shrink-wrap cap on `product-usage` and the mirrored reflections carried the
 same nonsense; those are dissolved into the surface they sit on rather than
 reset, because nothing there is meant to be read.
 
+### Weight, and why it is shaped this way
+
+Nearly all of the traffic is mobile, much of it on a weak connection, so the
+page is built around that rather than adapted to it afterwards.
+
+| | before | now |
+| --- | --- | --- |
+| images (19) | 1,490 KB | 438 KB |
+| hero video | 685 KB | 132 KB |
+| fonts | 84 KB | 84 KB |
+| html, css, js | 81 KB | 116 KB raw, 32 KB gzipped |
+| **first load, 375px phone** | **2,340 KB** | **770 KB** |
+
+Three things got it there.
+
+**The image ladder is measured, not guessed.** `tools/build_responsive.py`
+holds the rendered CSS width of every image at five viewport widths, read out
+of the live page, and sizes each variant from that. Rebuild with:
+
+```powershell
+python tools/build_responsive.py
+```
+
+Re-measure if the layout changes materially. With the page open at a given
+width, scrolled top to bottom so the lazy images have loaded:
+
+```js
+Object.fromEntries([...document.images].map(i => [
+  i.currentSrc.split('/').pop().replace(/(-\d+)?\.webp$/, ''),
+  Math.round(i.getBoundingClientRect().width)]))
+```
+
+**Phones are served one named file, not a srcset.** `srcset` multiplies
+`sizes` by the device's own pixel ratio and there is no way to cap it, so a
+DPR 3 phone fetches three device pixels per CSS pixel. The phone and tablet
+bands are `<source media>` entries instead, which name one exact file and
+ignore DPR; only the desktop bands keep a DPR-aware `srcset`. Phones get about
+1.7 device pixels per CSS pixel, which is invisible at arm's length and is the
+single biggest lever on the page.
+
+**The video is chosen in JavaScript.** The `<video>` has no `src` in the
+markup, so nothing downloads until `wireHeroVideo()` decides. Reduced motion,
+Save-Data and a connection the browser reports as 2g all keep the still poster
+and cost nothing beyond its 12 KB. Everyone else gets a file sized for their
+screen: `hero-sprout-480.mp4` at 132 KB on a phone, `hero-sprout.mp4` at
+685 KB on a desktop.
+
+The `@font-face` rules were moved out of `assets/fonts/fonts.css` and inlined
+at the top of `site.css`. Behind an `@import` the browser could not even
+discover the font stylesheet until `site.css` had arrived, which cost a whole
+round trip on a high latency connection.
+
 `tools/` holds the scripts, and they are repeatable:
 
 ```powershell
@@ -143,6 +195,10 @@ python tools/fix_labels.py
 
 ```powershell
 python tools/build_images.py
+```
+
+```powershell
+python tools/build_responsive.py
 ```
 
 `fix_labels.py` rewrites `source-art/fixed/`, `build_images.py` turns those into
@@ -177,8 +233,10 @@ neither is captioned as a result. They are not a before-and-after.
 
 ## The hero clip
 
-`assets/video/hero-sprout.mp4` is 3.7 seconds, 752x416, silent, 700 KB. It is a
-seed germinating in soil. It carries no product, no text and no claim.
+`assets/video/hero-sprout.mp4` is 3.7 seconds, 752x416, silent, 685 KB, and
+`assets/video/hero-sprout-480.mp4` is the same clip at 480 wide and 132 KB for
+phones. It is a seed germinating in soil. It carries no product, no text and
+no claim.
 
 The supplied source ran 10 seconds. Only the first 4.5 are used. After that,
 gold 3D lettering rotates around the sprout reading "ALL FROM NA...",
@@ -195,9 +253,10 @@ moment. Rebuild it with:
 python tools/build_hero_video.py
 ```
 
-It is started from `site.js`, not by an `autoplay` attribute. Anyone who has
-asked their system for reduced motion, and anyone without JavaScript, keeps the
-still poster frame instead. It is muted, has no controls and cannot be put into
+It is started from `site.js`, not by an `autoplay` attribute, and the `src` is
+set there too, so an unwanted clip is never downloaded at all. Anyone who has
+asked their system for reduced motion, anyone on Save-Data or a 2g connection,
+and anyone without JavaScript keeps the still poster frame instead. It is muted, has no controls and cannot be put into
 picture-in-picture.
 
 ---
