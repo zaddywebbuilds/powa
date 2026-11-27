@@ -1,0 +1,876 @@
+[
+ {
+  "title": "Knack Extra order",
+  "status": "published",
+  "appearance_settings": null,
+  "form_fields": {
+   "fields": [
+    {
+     "index": 0,
+     "element": "input_text",
+     "attributes": {
+      "type": "text",
+      "name": "names",
+      "value": "",
+      "class": "",
+      "placeholder": "Your full name",
+      "maxlength": ""
+     },
+     "settings": {
+      "container_class": "",
+      "label": "Full name",
+      "label_placement": "",
+      "admin_field_label": "Full name",
+      "help_message": "",
+      "conditional_logics": [],
+      "prefix_label": "",
+      "suffix_label": "",
+      "validation_rules": {
+       "required": {
+        "value": true,
+        "message": "This field is required",
+        "global_message": "This field is required",
+        "global": true
+       }
+      },
+      "is_unique": "no",
+      "unique_validation_message": "This value need to be unique."
+     },
+     "editor_options": {
+      "title": "Simple Text",
+      "icon_class": "ff-edit-text",
+      "template": "inputText"
+     },
+     "uniqElKey": "el_1795771835998001"
+    },
+    {
+     "index": 0,
+     "element": "input_text",
+     "attributes": {
+      "type": "text",
+      "name": "phone",
+      "value": "",
+      "class": "",
+      "placeholder": "0803 000 0000",
+      "maxlength": ""
+     },
+     "settings": {
+      "container_class": "ke-half",
+      "label": "Phone number",
+      "label_placement": "",
+      "admin_field_label": "Phone number",
+      "help_message": "",
+      "conditional_logics": [],
+      "prefix_label": "",
+      "suffix_label": "",
+      "validation_rules": {
+       "required": {
+        "value": true,
+        "message": "This field is required",
+        "global_message": "This field is required",
+        "global": true
+       }
+      },
+      "is_unique": "no",
+      "unique_validation_message": "This value need to be unique."
+     },
+     "editor_options": {
+      "title": "Simple Text",
+      "icon_class": "ff-edit-text",
+      "template": "inputText"
+     },
+     "uniqElKey": "el_1795771835998002"
+    },
+    {
+     "index": 0,
+     "element": "input_text",
+     "attributes": {
+      "type": "text",
+      "name": "phone_alt",
+      "value": "",
+      "class": "",
+      "placeholder": "Optional",
+      "maxlength": ""
+     },
+     "settings": {
+      "container_class": "ke-half",
+      "label": "Second number",
+      "label_placement": "",
+      "admin_field_label": "Second number",
+      "help_message": "",
+      "conditional_logics": [],
+      "prefix_label": "",
+      "suffix_label": "",
+      "validation_rules": {
+       "required": {
+        "value": false,
+        "message": "This field is required",
+        "global_message": "This field is required",
+        "global": true
+       }
+      },
+      "is_unique": "no",
+      "unique_validation_message": "This value need to be unique."
+     },
+     "editor_options": {
+      "title": "Simple Text",
+      "icon_class": "ff-edit-text",
+      "template": "inputText"
+     },
+     "uniqElKey": "el_1795771835998003"
+    },
+    {
+     "index": 0,
+     "element": "select",
+     "attributes": {
+      "name": "state",
+      "value": "",
+      "id": "",
+      "class": "",
+      "placeholder": "Select a state",
+      "multiple": false
+     },
+     "settings": {
+      "container_class": "ke-half",
+      "label": "State",
+      "label_placement": "",
+      "admin_field_label": "State",
+      "help_message": "",
+      "conditional_logics": [],
+      "dynamic_default_value": "",
+      "placeholder": "Select a state",
+      "max_selection": "",
+      "advanced_options": [
+       {
+        "label": "Abia",
+        "value": "Abia",
+        "calc_value": "",
+        "id": 0
+       },
+       {
+        "label": "Adamawa",
+        "value": "Adamawa",
+        "calc_value": "",
+        "id": 1
+       },
+       {
+        "label": "Akwa Ibom",
+        "value": "Akwa Ibom",
+        "calc_value": "",
+        "id": 2
+       },
+       {
+        "label": "Anambra",
+        "value": "Anambra",
+        "calc_value": "",
+        "id": 3
+       },
+       {
+        "label": "Bauchi",
+        "value": "Bauchi",
+        "calc_value": "",
+        "id": 4
+       },
+       {
+        "label": "Bayelsa",
+        "value": "Bayelsa",
+        "calc_value": "",
+        "id": 5
+       },
+       {
+        "label": "Benue",
+        "value": "Benue",
+        "calc_value": "",
+        "id": 6
+       },
+       {
+        "label": "Borno",
+        "value": "Borno",
+        "calc_value": "",
+        "id": 7
+       },
+       {
+        "label": "Cross River",
+        "value": "Cross River",
+        "calc_value": "",
+        "id": 8
+       },
+       {
+        "label": "Delta",
+        "value": "Delta",
+        "calc_value": "",
+        "id": 9
+       },
+       {
+        "label": "Ebonyi",
+        "value": "Ebonyi",
+        "calc_value": "",
+        "id": 10
+       },
+       {
+        "label": "Edo",
+        "value": "Edo",
+        "calc_value": "",
+        "id": 11
+       },
+       {
+        "label": "Ekiti",
+        "value": "Ekiti",
+        "calc_value": "",
+        "id": 12
+       },
+       {
+        "label": "Enugu",
+        "value": "Enugu",
+        "calc_value": "",
+        "id": 13
+       },
+       {
+        "label": "Federal Capital Territory",
+        "value": "Federal Capital Territory",
+        "calc_value": "",
+        "id": 14
+       },
+       {
+        "label": "Gombe",
+        "value": "Gombe",
+        "calc_value": "",
+        "id": 15
+       },
+       {
+        "label": "Imo",
+        "value": "Imo",
+        "calc_value": "",
+        "id": 16
+       },
+       {
+        "label": "Jigawa",
+        "value": "Jigawa",
+        "calc_value": "",
+        "id": 17
+       },
+       {
+        "label": "Kaduna",
+        "value": "Kaduna",
+        "calc_value": "",
+        "id": 18
+       },
+       {
+        "label": "Kano",
+        "value": "Kano",
+        "calc_value": "",
+        "id": 19
+       },
+       {
+        "label": "Katsina",
+        "value": "Katsina",
+        "calc_value": "",
+        "id": 20
+       },
+       {
+        "label": "Kebbi",
+        "value": "Kebbi",
+        "calc_value": "",
+        "id": 21
+       },
+       {
+        "label": "Kogi",
+        "value": "Kogi",
+        "calc_value": "",
+        "id": 22
+       },
+       {
+        "label": "Kwara",
+        "value": "Kwara",
+        "calc_value": "",
+        "id": 23
+       },
+       {
+        "label": "Lagos",
+        "value": "Lagos",
+        "calc_value": "",
+        "id": 24
+       },
+       {
+        "label": "Nasarawa",
+        "value": "Nasarawa",
+        "calc_value": "",
+        "id": 25
+       },
+       {
+        "label": "Niger",
+        "value": "Niger",
+        "calc_value": "",
+        "id": 26
+       },
+       {
+        "label": "Ogun",
+        "value": "Ogun",
+        "calc_value": "",
+        "id": 27
+       },
+       {
+        "label": "Ondo",
+        "value": "Ondo",
+        "calc_value": "",
+        "id": 28
+       },
+       {
+        "label": "Osun",
+        "value": "Osun",
+        "calc_value": "",
+        "id": 29
+       },
+       {
+        "label": "Oyo",
+        "value": "Oyo",
+        "calc_value": "",
+        "id": 30
+       },
+       {
+        "label": "Plateau",
+        "value": "Plateau",
+        "calc_value": "",
+        "id": 31
+       },
+       {
+        "label": "Rivers",
+        "value": "Rivers",
+        "calc_value": "",
+        "id": 32
+       },
+       {
+        "label": "Sokoto",
+        "value": "Sokoto",
+        "calc_value": "",
+        "id": 33
+       },
+       {
+        "label": "Taraba",
+        "value": "Taraba",
+        "calc_value": "",
+        "id": 34
+       },
+       {
+        "label": "Yobe",
+        "value": "Yobe",
+        "calc_value": "",
+        "id": 35
+       },
+       {
+        "label": "Zamfara",
+        "value": "Zamfara",
+        "calc_value": "",
+        "id": 36
+       }
+      ],
+      "calc_value_status": false,
+      "enable_image_input": false,
+      "randomize_options": "no",
+      "validation_rules": {
+       "required": {
+        "value": true,
+        "message": "This field is required",
+        "global_message": "This field is required",
+        "global": true
+       }
+      },
+      "values_visible": false
+     },
+     "editor_options": {
+      "title": "Dropdown",
+      "icon_class": "ff-edit-dropdown",
+      "element": "select",
+      "template": "select"
+     },
+     "uniqElKey": "el_1795771835998004"
+    },
+    {
+     "index": 0,
+     "element": "input_text",
+     "attributes": {
+      "type": "text",
+      "name": "city",
+      "value": "",
+      "class": "",
+      "placeholder": "",
+      "maxlength": ""
+     },
+     "settings": {
+      "container_class": "ke-half",
+      "label": "City or LGA",
+      "label_placement": "",
+      "admin_field_label": "City or LGA",
+      "help_message": "",
+      "conditional_logics": [],
+      "prefix_label": "",
+      "suffix_label": "",
+      "validation_rules": {
+       "required": {
+        "value": true,
+        "message": "This field is required",
+        "global_message": "This field is required",
+        "global": true
+       }
+      },
+      "is_unique": "no",
+      "unique_validation_message": "This value need to be unique."
+     },
+     "editor_options": {
+      "title": "Simple Text",
+      "icon_class": "ff-edit-text",
+      "template": "inputText"
+     },
+     "uniqElKey": "el_1795771835998005"
+    },
+    {
+     "index": 0,
+     "element": "textarea",
+     "attributes": {
+      "name": "address",
+      "value": "",
+      "id": "",
+      "class": "",
+      "placeholder": "House number, street, area",
+      "rows": "3",
+      "cols": "2",
+      "maxlength": ""
+     },
+     "settings": {
+      "container_class": "",
+      "label": "Delivery address",
+      "label_placement": "",
+      "admin_field_label": "Delivery address",
+      "help_message": "",
+      "conditional_logics": [],
+      "validation_rules": {
+       "required": {
+        "value": true,
+        "message": "This field is required",
+        "global_message": "This field is required",
+        "global": true
+       }
+      },
+      "is_unique": "no",
+      "unique_validation_message": "This value need to be unique."
+     },
+     "editor_options": {
+      "title": "Text Area",
+      "icon_class": "ff-edit-textarea",
+      "template": "inputTextarea"
+     },
+     "uniqElKey": "el_1795771835998006"
+    },
+    {
+     "index": 0,
+     "element": "input_text",
+     "attributes": {
+      "type": "text",
+      "name": "landmark",
+      "value": "",
+      "class": "",
+      "placeholder": "Optional, it helps the rider",
+      "maxlength": ""
+     },
+     "settings": {
+      "container_class": "",
+      "label": "Nearest landmark",
+      "label_placement": "",
+      "admin_field_label": "Nearest landmark",
+      "help_message": "",
+      "conditional_logics": [],
+      "prefix_label": "",
+      "suffix_label": "",
+      "validation_rules": {
+       "required": {
+        "value": false,
+        "message": "This field is required",
+        "global_message": "This field is required",
+        "global": true
+       }
+      },
+      "is_unique": "no",
+      "unique_validation_message": "This value need to be unique."
+     },
+     "editor_options": {
+      "title": "Simple Text",
+      "icon_class": "ff-edit-text",
+      "template": "inputText"
+     },
+     "uniqElKey": "el_1795771835998007"
+    },
+    {
+     "index": 0,
+     "element": "textarea",
+     "attributes": {
+      "name": "notes",
+      "value": "",
+      "id": "",
+      "class": "",
+      "placeholder": "Best time to call, gate instructions, anything useful.",
+      "rows": "3",
+      "cols": "2",
+      "maxlength": ""
+     },
+     "settings": {
+      "container_class": "",
+      "label": "Delivery instructions",
+      "label_placement": "",
+      "admin_field_label": "Delivery instructions",
+      "help_message": "",
+      "conditional_logics": [],
+      "validation_rules": {
+       "required": {
+        "value": false,
+        "message": "This field is required",
+        "global_message": "This field is required",
+        "global": true
+       }
+      },
+      "is_unique": "no",
+      "unique_validation_message": "This value need to be unique."
+     },
+     "editor_options": {
+      "title": "Text Area",
+      "icon_class": "ff-edit-textarea",
+      "template": "inputTextarea"
+     },
+     "uniqElKey": "el_1795771835998008"
+    },
+    {
+     "index": 0,
+     "element": "input_radio",
+     "attributes": {
+      "type": "radio",
+      "name": "package",
+      "value": ""
+     },
+     "settings": {
+      "container_class": "ke-packages",
+      "label": "Your package",
+      "label_placement": "",
+      "admin_field_label": "Your package",
+      "help_message": "This follows the package you picked above.",
+      "conditional_logics": [],
+      "dynamic_default_value": "",
+      "display_type": "",
+      "advanced_options": [
+       {
+        "label": "Single Bottle - \u00e2\u201a\u00a618,999",
+        "value": "single",
+        "calc_value": "",
+        "image": "",
+        "id": 0
+       },
+       {
+        "label": "Double Pack - \u00e2\u201a\u00a627,000 (\u00e2\u201a\u00a613,500 per bottle)",
+        "value": "double",
+        "calc_value": "",
+        "image": "",
+        "id": 1
+       },
+       {
+        "label": "Triple Pack - \u00e2\u201a\u00a646,999 (\u00e2\u201a\u00a615,666 per bottle)",
+        "value": "triple",
+        "calc_value": "",
+        "image": "",
+        "id": 2
+       }
+      ],
+      "calc_value_status": false,
+      "enable_image_input": false,
+      "values_visible": false,
+      "randomize_options": "no",
+      "enable_other_option": "no",
+      "validation_rules": {
+       "required": {
+        "value": true,
+        "message": "This field is required",
+        "global_message": "This field is required",
+        "global": true
+       }
+      },
+      "layout_class": ""
+     },
+     "editor_options": {
+      "title": "Radio Field",
+      "icon_class": "ff-edit-radio",
+      "template": "inputRadio"
+     },
+     "uniqElKey": "el_1795771835998009"
+    },
+    {
+     "index": 0,
+     "element": "input_checkbox",
+     "attributes": {
+      "type": "checkbox",
+      "name": "consent",
+      "value": []
+     },
+     "settings": {
+      "container_class": "",
+      "label": "Confirmation",
+      "label_placement": "",
+      "admin_field_label": "Confirmation",
+      "help_message": "",
+      "conditional_logics": [],
+      "dynamic_default_value": "",
+      "display_type": "",
+      "advanced_options": [
+       {
+        "label": "I am 18 or over, and I am happy for my details to be used to confirm and deliver this order.",
+        "value": "yes",
+        "calc_value": "",
+        "image": "",
+        "id": 0
+       }
+      ],
+      "calc_value_status": false,
+      "enable_image_input": false,
+      "values_visible": false,
+      "randomize_options": "no",
+      "enable_other_option": "no",
+      "validation_rules": {
+       "required": {
+        "value": true,
+        "message": "This field is required",
+        "global_message": "This field is required",
+        "global": true
+       }
+      },
+      "layout_class": ""
+     },
+     "editor_options": {
+      "title": "Check Box",
+      "icon_class": "ff-edit-checkbox-1",
+      "template": "inputCheckable"
+     },
+     "uniqElKey": "el_1795771835998010"
+    },
+    {
+     "index": 0,
+     "element": "input_checkbox",
+     "attributes": {
+      "type": "checkbox",
+      "name": "marketing",
+      "value": []
+     },
+     "settings": {
+      "container_class": "",
+      "label": "Marketing",
+      "label_placement": "",
+      "admin_field_label": "Marketing",
+      "help_message": "",
+      "conditional_logics": [],
+      "dynamic_default_value": "",
+      "display_type": "",
+      "advanced_options": [
+       {
+        "label": "Optional: you may message me about offers later. Leave this unticked and we will only contact you about this order.",
+        "value": "yes",
+        "calc_value": "",
+        "image": "",
+        "id": 0
+       }
+      ],
+      "calc_value_status": false,
+      "enable_image_input": false,
+      "values_visible": false,
+      "randomize_options": "no",
+      "enable_other_option": "no",
+      "validation_rules": {
+       "required": {
+        "value": false,
+        "message": "This field is required",
+        "global_message": "This field is required",
+        "global": true
+       }
+      },
+      "layout_class": ""
+     },
+     "editor_options": {
+      "title": "Check Box",
+      "icon_class": "ff-edit-checkbox-1",
+      "template": "inputCheckable"
+     },
+     "uniqElKey": "el_1795771835998011"
+    },
+    {
+     "index": 0,
+     "element": "input_hidden",
+     "attributes": {
+      "type": "hidden",
+      "name": "order_reference",
+      "value": ""
+     },
+     "settings": {
+      "container_class": "",
+      "label": "",
+      "admin_field_label": "Order reference",
+      "validation_rules": {},
+      "conditional_logics": []
+     },
+     "editor_options": {
+      "title": "Hidden Field",
+      "icon_class": "ff-edit-hidden-field",
+      "template": "inputHidden"
+     },
+     "uniqElKey": "el_1795771835998012"
+    },
+    {
+     "index": 0,
+     "element": "input_hidden",
+     "attributes": {
+      "type": "hidden",
+      "name": "order_package",
+      "value": ""
+     },
+     "settings": {
+      "container_class": "",
+      "label": "",
+      "admin_field_label": "Package",
+      "validation_rules": {},
+      "conditional_logics": []
+     },
+     "editor_options": {
+      "title": "Hidden Field",
+      "icon_class": "ff-edit-hidden-field",
+      "template": "inputHidden"
+     },
+     "uniqElKey": "el_1795771835998013"
+    },
+    {
+     "index": 0,
+     "element": "input_hidden",
+     "attributes": {
+      "type": "hidden",
+      "name": "order_quantity",
+      "value": ""
+     },
+     "settings": {
+      "container_class": "",
+      "label": "",
+      "admin_field_label": "Bottles",
+      "validation_rules": {},
+      "conditional_logics": []
+     },
+     "editor_options": {
+      "title": "Hidden Field",
+      "icon_class": "ff-edit-hidden-field",
+      "template": "inputHidden"
+     },
+     "uniqElKey": "el_1795771835998014"
+    },
+    {
+     "index": 0,
+     "element": "input_hidden",
+     "attributes": {
+      "type": "hidden",
+      "name": "order_subtotal",
+      "value": ""
+     },
+     "settings": {
+      "container_class": "",
+      "label": "",
+      "admin_field_label": "Subtotal",
+      "validation_rules": {},
+      "conditional_logics": []
+     },
+     "editor_options": {
+      "title": "Hidden Field",
+      "icon_class": "ff-edit-hidden-field",
+      "template": "inputHidden"
+     },
+     "uniqElKey": "el_1795771835998015"
+    },
+    {
+     "index": 0,
+     "element": "input_hidden",
+     "attributes": {
+      "type": "hidden",
+      "name": "order_total",
+      "value": ""
+     },
+     "settings": {
+      "container_class": "",
+      "label": "",
+      "admin_field_label": "Total payable",
+      "validation_rules": {},
+      "conditional_logics": []
+     },
+     "editor_options": {
+      "title": "Hidden Field",
+      "icon_class": "ff-edit-hidden-field",
+      "template": "inputHidden"
+     },
+     "uniqElKey": "el_1795771835998016"
+    }
+   ],
+   "submitButton": {
+    "uniqElKey": "el_1795771835998017",
+    "element": "button",
+    "attributes": {
+     "type": "submit",
+     "class": ""
+    },
+    "settings": {
+     "align": "left",
+     "button_style": "default",
+     "container_class": "",
+     "help_message": "",
+     "button_size": "lg",
+     "button_ui": {
+      "type": "default",
+      "text": "Confirm my order",
+      "img_url": ""
+     },
+     "normal_styles": {},
+     "hover_styles": {},
+     "current_state": "normal_styles"
+    },
+    "editor_options": {
+     "title": "Submit Button"
+    }
+   }
+  },
+  "has_payment": "0",
+  "type": "form",
+  "conditions": null,
+  "form_meta": [
+   {
+    "meta_key": "formSettings",
+    "value": "{\"confirmation\": {\"redirectTo\": \"samePage\", \"messageToShow\": \"<p><strong>Thank you. Your order has been received.</strong></p><p>Your reference is {inputs.order_reference}. Nothing has been dispatched yet, and nothing has been charged.</p><p>A member of our team will call you on the number you gave, to confirm the address and agree a delivery window. You pay the rider when the parcel reaches you. We will never ask you for a card number, a PIN or a one-time code.</p>\", \"customPage\": null, \"samePageFormBehavior\": \"hide_form\", \"customUrl\": \"\"}, \"restrictions\": {\"denyEmptySubmission\": {\"enabled\": true, \"message\": \"Sorry, you cannot submit an empty form.\"}}, \"layout\": {\"labelPlacement\": \"top\", \"asteriskPlacement\": \"asterisk-right\", \"helpMessagePlacement\": \"with_label\", \"errorMessagePlacement\": \"inline\", \"cssClassName\": \"\"}, \"delete_entry_on_submission\": \"no\"}"
+   },
+   {
+    "meta_key": "template_name",
+    "value": "blank_form"
+   },
+   {
+    "meta_key": "notifications",
+    "value": "{\"name\": \"New order\", \"sendTo\": {\"type\": \"email\", \"email\": \"{wp.admin_email}\"}, \"fromName\": \"\", \"fromEmail\": \"\", \"replyTo\": \"\", \"bcc\": \"\", \"subject\": \"New order {inputs.order_reference} - {inputs.order_package}\", \"message\": \"<p>A new order was placed on the website.</p><p><strong>Reference:</strong> {inputs.order_reference}<br><strong>Package:</strong> {inputs.order_package}<br><strong>Total payable:</strong> {inputs.order_total}</p><p>{all_data}</p>\", \"conditionals\": {\"status\": false, \"type\": \"all\", \"conditions\": []}, \"enabled\": true, \"email_template\": \"\"}"
+   },
+   {
+    "meta_key": "_primary_email_field",
+    "value": ""
+   }
+  ],
+  "metas": [
+   {
+    "meta_key": "formSettings",
+    "value": "{\"confirmation\": {\"redirectTo\": \"samePage\", \"messageToShow\": \"<p><strong>Thank you. Your order has been received.</strong></p><p>Your reference is {inputs.order_reference}. Nothing has been dispatched yet, and nothing has been charged.</p><p>A member of our team will call you on the number you gave, to confirm the address and agree a delivery window. You pay the rider when the parcel reaches you. We will never ask you for a card number, a PIN or a one-time code.</p>\", \"customPage\": null, \"samePageFormBehavior\": \"hide_form\", \"customUrl\": \"\"}, \"restrictions\": {\"denyEmptySubmission\": {\"enabled\": true, \"message\": \"Sorry, you cannot submit an empty form.\"}}, \"layout\": {\"labelPlacement\": \"top\", \"asteriskPlacement\": \"asterisk-right\", \"helpMessagePlacement\": \"with_label\", \"errorMessagePlacement\": \"inline\", \"cssClassName\": \"\"}, \"delete_entry_on_submission\": \"no\"}"
+   },
+   {
+    "meta_key": "template_name",
+    "value": "blank_form"
+   },
+   {
+    "meta_key": "notifications",
+    "value": "{\"name\": \"New order\", \"sendTo\": {\"type\": \"email\", \"email\": \"{wp.admin_email}\"}, \"fromName\": \"\", \"fromEmail\": \"\", \"replyTo\": \"\", \"bcc\": \"\", \"subject\": \"New order {inputs.order_reference} - {inputs.order_package}\", \"message\": \"<p>A new order was placed on the website.</p><p><strong>Reference:</strong> {inputs.order_reference}<br><strong>Package:</strong> {inputs.order_package}<br><strong>Total payable:</strong> {inputs.order_total}</p><p>{all_data}</p>\", \"conditionals\": {\"status\": false, \"type\": \"all\", \"conditions\": []}, \"enabled\": true, \"email_template\": \"\"}"
+   },
+   {
+    "meta_key": "_primary_email_field",
+    "value": ""
+   }
+  ]
+ }
+]

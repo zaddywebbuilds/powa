@@ -5,6 +5,11 @@ build step, no framework, no dependencies to install. Hosted on GitHub Pages.
 
 Live: https://zaddywebbuilds.github.io/powa/
 
+It also builds as a WordPress theme, so the same pages can be served from a
+WordPress install with the order form rendered by Fluent Forms and every order
+recorded as an entry. See **README-WORDPRESS.md**. The static build is the
+source: the theme is generated from it.
+
 ---
 
 ## Before anything else: set the WhatsApp number
@@ -38,7 +43,10 @@ assets/video/         the hero clip, silent and looping
 assets/fonts/         self-hosted Playfair Display + Manrope, latin subset
 source-art/           full-resolution originals, never served
 source-art/fixed/     the same art with the label text repaired
-tools/                the retouch and image-build scripts
+tools/                the retouch, image, theme and form build scripts
+wp-theme/             the hand-written half of the WordPress theme
+wordpress/            the Fluent Forms order form, ready to import
+dist/                 build output, not committed
 ```
 
 ### config.js is the only file with commercial facts in it
@@ -81,6 +89,29 @@ VPS, but it is a different deployment.
 
 GitHub Pages, from the `main` branch, root folder. `.nojekyll` is present so
 the `assets/` folder is served as-is. Push and it republishes.
+
+### Or as a WordPress theme
+
+```powershell
+python tools/build_theme.py
+```
+
+This slices `index.html` and `policies.html` into WordPress templates, rewrites
+every relative asset path, swaps the hand-written order form for the Fluent
+Forms shortcode, and writes `dist/knack-extra.zip` ready to upload under
+Appearance, Themes.
+
+```powershell
+python tools/build_form.py
+```
+
+This writes `wordpress/knack-extra-order-form.json`, the order form itself,
+with the states and the package prices read out of `config.js` so they cannot
+drift away from the prices on the page. Both are documented in
+**README-WORDPRESS.md**.
+
+`header.php`, `footer.php`, `front-page.php` and `page-policies.php` are
+generated. Edit the HTML and rebuild rather than editing them.
 
 ---
 

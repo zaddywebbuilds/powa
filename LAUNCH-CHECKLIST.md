@@ -15,6 +15,24 @@ code that decide whether it can legally trade and advertise.
 
 Until the WhatsApp number is set, the order button hides itself.
 
+### If you are running the WordPress build
+
+- [ ] Import `wordpress/knack-extra-order-form.json` and set its ID under
+      Appearance, Customize, Knack Extra order form
+- [ ] Or fix form 42 first: the package field is a check box, so a customer can
+      tick all three and nothing adds up, and it redirects to
+      `betterresult2.store/powathanks/` on submit
+- [ ] Point the form notification at a mailbox somebody reads. It currently
+      goes to `{wp.admin_email}`.
+- [ ] Install an SMTP plugin. WordPress mail from shared hosting fails quietly,
+      and a form that looks like it works while dropping orders is worse than
+      no form at all.
+- [ ] Take the front page off Elementor and trash the old **MAN POWA** page
+- [ ] Place one test order and confirm the entry, the email, and that the entry
+      carries the reference and the total
+
+Full steps are in `README-WORDPRESS.md`.
+
 ## 2. Identify the seller
 
 - [ ] Registered business name in `site.businessName`
@@ -161,3 +179,6 @@ Coded phrasing that means the same thing counts as the same claim.
       a document behind it
 - [ ] Test an order on a real phone on mobile data, not just wifi
 - [ ] Check the policies page reads correctly with the real terms in place
+- [ ] On WordPress, delete the leftover pages from the previous site. NAFDAC
+      advertisement review, ARCON and Meta look at the whole domain, not only
+      the page you send them to.

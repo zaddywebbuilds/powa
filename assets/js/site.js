@@ -13,6 +13,15 @@
   var C = window.KNACK;
   if (!C) { console.error('config.js did not load'); return; }
 
+  // Where the files live. The static build serves them from a relative path.
+  // The WordPress theme serves them from the theme folder and sets
+  // window.KNACK_PATHS before this script runs, so neither build hard-codes a
+  // path that is only true for the other one.
+  var P      = window.KNACK_PATHS || {};
+  var IMG    = (P.assets || 'assets/') + 'img/';
+  var SITE   = P.home || C.site.url;
+  var THANKS = P.thankYou || 'thank-you.html';
+
   /* ------------------------------------------------------------- helpers */
 
   var $  = function (s, r) { return (r || document).querySelector(s); };
@@ -46,6 +55,12 @@
 
   function money(n) {
     return C.site.currencySymbol + Number(n).toLocaleString('en-NG');
+  }
+
+  // An absolute URL for structured data, whichever build is serving the page.
+  function absUrl(path) {
+    if (/^https?:\/\//.test(path)) return path;
+    return SITE.replace(/\/+$/, '') + '/' + path.replace(/^\/+/, '');
   }
 
   function esc(s) {
@@ -266,7 +281,7 @@
 
       btn.innerHTML =
         badge +
-        '<div class="pkg-img"><img src="assets/img/' + p.image + '.webp" width="380" height="380" loading="lazy" decoding="async" alt="' +
+        '<div class="pkg-img"><img src="' + IMG + p.image + '.webp" width="380" height="380" loading="lazy" decoding="async" alt="' +
           esc(p.qty + (p.qty > 1 ? ' bottles' : ' bottle') + ' of Knack Extra Capsules') + '"></div>' +
         '<div class="pkg-body">' +
           '<div class="qty">' + p.qty + (p.qty > 1 ? ' bottles' : ' bottle') + '</div>' +
@@ -332,7 +347,9 @@
     set('#sum-total', fee === null ? money(total) + '*' : money(total));
 
     var img = $('#sum-img');
-    if (img) { img.src = 'assets/img/' + selected.image + '.webp'; img.alt = ''; }
+    if (img) { img.src = IMG + selected.image + '.webp'; img.alt = ''; }
+
+    syncOrderForm();
 
     var note = $('#sum-note');
     if (note) {
@@ -503,7 +520,7 @@
       }
     }
 
-    setTimeout(function () { window.location.href = 'thank-you.html'; }, 600);
+    setTimeout(function () { window.location.href = THANKS; }, 600);
   }
 
   /* ----------------------------------------------------- support links */
@@ -622,7 +639,9 @@
     var hero = $('.hero');
     var onScroll = function () {
       var y = window.scrollY;
-      if (head) head.dataset.stuck = y > 24 ? '1' : '0';
+      if (head && !head.dataset.alwaysStuck) {
+        head.dataset.stuck = y > 24 ? '1' : '0';
+      }
       if (bar && hero) bar.dataset.on = (y > hero.offsetHeight * 0.65) ? '1' : '0';
     };
     window.addEventListener('scroll', onScroll, { passive: true });
@@ -674,6 +693,105 @@
     if (p && p.catch) p.catch(function () { /* browser declined; poster stays */ });
   }
 
+  /* --------------------------------------------- the rendered order form */
+  // On WordPress the order form is rendered by Fluent Forms, so the markup
+  // belongs to the plugin and the client can change the fields without anyone
+  // touching the theme. Two things still have to stay true:
+  //
+  //   1. the package chosen in the packages grid is the package submitted;
+  //   2. the entry records the reference and the total the customer saw,
+  //      rather than a name and an address with no order attached to them.
+  //
+  // All of it degrades to nothing when no such form is on the page, which is
+  // what happens on the static build.
+
+  var orderRef = null;
+
+  function orderForm() {
+    return $('.ke-form form');
+  }
+
+  // Does this option stand for this package? An option value of "double"
+  // matches on the id, which is what the supplied form definition uses. A
+  // value still reading "2 Bottles = N27,000" matches on the quantity, so the
+  // sync survives a form whose option values were never tidied up.
+  function optionMatches(input, pkg) {
+    var v = String(input.value || '').toLowerCase().trim();
+    if (!v) return false;
+    if (v === pkg.id) return true;
+    if (v === pkg.name.toLowerCase()) return true;
+    return v.indexOf(pkg.qty + ' bottle') === 0;
+  }
+
+  function setValue(input, value) {
+    if (!input || input.value === value) return;
+    input.value = value;
+    input.dispatchEvent(new Event('input', { bubbles: true }));
+    input.dispatchEvent(new Event('change', { bubbles: true }));
+  }
+
+  function packageInputs(form) {
+    return $$('input[type="radio"],input[type="checkbox"]', form).filter(function (i) {
+      return /package/i.test(i.name || '');
+    });
+  }
+
+  function syncOrderForm() {
+    var form = orderForm();
+    if (!form || !selected) return;
+
+    if (!orderRef) orderRef = reference();
+
+    var fee = deliveryFee();
+    var hidden = {
+      order_reference: orderRef,
+      order_package:   selected.name,
+      order_quantity:  String(selected.qty),
+      order_subtotal:  money(selected.price),
+      order_total:     money(selected.price + (fee || 0)) + (fee === null ? ' plus delivery' : '')
+    };
+
+    Object.keys(hidden).forEach(function (name) {
+      setValue(form.querySelector('input[name="' + name + '"]'), hidden[name]);
+    });
+
+    var opts = packageInputs(form);
+    if (!opts.length) return;
+
+    var hit = null;
+    opts.forEach(function (i) { if (!hit && optionMatches(i, selected)) hit = i; });
+    if (!hit) return;
+
+    opts.forEach(function (i) {
+      var on = (i === hit);
+      if (i.checked !== on) {
+        i.checked = on;
+        i.dispatchEvent(new Event('change', { bubbles: true }));
+      }
+    });
+  }
+
+  function wireOrderFormSync() {
+    var form = orderForm();
+    if (!form) return;
+
+    syncOrderForm();
+
+    // Changing the package inside the form must not leave the summary panel
+    // beside it showing the old one.
+    form.addEventListener('change', function (e) {
+      var t = e.target;
+      if (!t || !t.checked || !/package/i.test(t.name || '')) return;
+      var hit = null;
+      C.packages.forEach(function (p) { if (!hit && optionMatches(t, p)) hit = p; });
+      if (hit && (!selected || hit.id !== selected.id)) selectPackage(hit.id, false);
+    });
+
+    form.addEventListener('submit', function () {
+      track('order_submit', selected ? selected.id : '');
+    });
+  }
+
   function wireForm() {
     var form = $('#order-form');
     if (!form) return;
@@ -723,6 +841,11 @@
   /* ------------------------------------------------------ structured data */
 
   function injectSchema() {
+    // Product structured data belongs on the page that sells the product.
+    // site.js is loaded on every page of the WordPress build, so without this
+    // the policies page would also claim to be the product.
+    if (!$('#pkg-grid')) return;
+
     var offers = C.packages.map(function (p) {
       return {
         '@type': 'Offer',
@@ -731,7 +854,7 @@
         priceCurrency: C.site.currency,
         availability: 'https://schema.org/InStock',
         eligibleQuantity: { '@type': 'QuantitativeValue', value: p.qty, unitText: 'bottle' },
-        url: C.site.url + '#packages'
+        url: SITE + '#packages'
       };
     });
 
@@ -740,7 +863,7 @@
       '@type': 'Product',
       name: C.product.name,
       description: 'Herbal capsule product for adult men, sold in Nigeria with payment on delivery.',
-      image: [C.site.url + 'assets/img/product-hero.webp'],
+      image: [absUrl(IMG + 'product-hero.webp')],
       offers: {
         '@type': 'AggregateOffer',
         priceCurrency: C.site.currency,
@@ -758,7 +881,7 @@
       '@context': 'https://schema.org',
       '@type': 'Organization',
       name: brandName || C.site.brand,
-      url: C.site.url
+      url: SITE
     };
     if (live('contact.phone')) {
       org.contactPoint = [{ '@type': 'ContactPoint', telephone: val('contact.phone'), contactType: 'customer service', areaServed: 'NG' }];
@@ -805,6 +928,7 @@
     wireReveal();
     wireHeroVideo();
     wireForm();
+    wireOrderFormSync();
     trackSections();
     injectSchema();
 
