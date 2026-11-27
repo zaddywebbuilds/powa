@@ -768,7 +768,16 @@
 
   function packageInputs(form) {
     return $$('input[type="radio"],input[type="checkbox"]', form).filter(function (i) {
-      return /package/i.test(i.name || '');
+      if (/package/i.test(i.name || '')) return true;
+      // A field that was never named "package" still counts when its options
+      // are plainly the packages. The form supplied with the site is exactly
+      // that: a checkbox group named "checkbox" whose options read
+      // "1 Bottle = N18,999". Without this the sync silently did nothing,
+      // which is what the live page was doing.
+      for (var k = 0; k < C.packages.length; k++) {
+        if (optionMatches(i, C.packages[k])) return true;
+      }
+      return false;
     });
   }
 

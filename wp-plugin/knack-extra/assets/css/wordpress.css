@@ -43,3 +43,12 @@ body.knack-page textarea { font-family: inherit; }
    .knack-page block above, which also sets a background, or it loses on
    source order: the two selectors carry the same specificity. */
 body.knack-page.knack-policies { background: var(--ivory); }
+
+/* The Click to Chat plugin drops a floating WhatsApp button in the bottom
+   right at z-index 99999999, which lands directly on top of this page's own
+   sticky "Order now" bar and its support button. The page already offers
+   WhatsApp in two places, so the floating one is hidden here. These two pages
+   only: every other page on the site keeps it. */
+body.knack-page .ht-ctc,
+body.knack-page #ht-ctc-chat,
+body.knack-page .ht_ctc_chat_style { display: none !important; }
