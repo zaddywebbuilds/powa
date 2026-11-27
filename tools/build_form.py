@@ -61,8 +61,13 @@ def read_config() -> dict:
         "process.stdout.write(JSON.stringify(window.KNACK));"
         % json.dumps(str(ROOT / 'assets' / 'js' / 'config.js'))
     )
+    # encoding is not optional here. node writes UTF-8; without this Python
+    # decodes it with the Windows locale codepage, and the naira sign comes
+    # back as the cp1252 misreading of its UTF-8 bytes. That corruption then
+    # travels all the way into the package labels in WordPress.
     out = subprocess.run(
-        ['node', '-e', js], capture_output=True, text=True, check=True
+        ['node', '-e', js], capture_output=True, text=True,
+        encoding='utf-8', check=True
     )
     return json.loads(out.stdout)
 
