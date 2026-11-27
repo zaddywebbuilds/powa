@@ -116,25 +116,27 @@ python tools/build_images.py
 `fix_labels.py` rewrites `source-art/fixed/`, `build_images.py` turns those into
 the served WebP variants at the sizes recorded in `assets/img/_manifest.json`.
 `tools/relabel.py` is the engine; `tools/_grid.py` prints a coordinate grid over
-a crop when a region needs re-measuring.
+a crop when a region needs re-measuring. `tools/fix_delivery.py` is separate:
+it reframes the delivery photograph, and says in its own header why painting
+the card terminal out was abandoned.
 
 What is still **not** fixed: "100% HERBAL PRODUCT" and "30 CAPSULES" are printed
 legibly on the artwork and neither is verified. Replace the art with photographs
 of the real bottle before advertising anywhere.
 
-`assets/img/reserve/` holds the two images that stay off the page:
+`assets/img/reserve/` holds the one image that stays off the page:
 
 | File | Why it is held back |
 | --- | --- |
-| `reserve-ingredients.webp` | Headed "NATURAL INGREDIENTS" over ginseng, ginger, citrus and seeds. The real ingredient list is unknown, so the picture itself is the claim. Nothing short of replacing the image fixes that. |
-| `reserve-payment-delivery.webp` | A rider holding out a POS terminal while the customer offers a card. `payment.cardOnDelivery` is false. Use it only if the rider genuinely carries one. |
+| `reserve-ingredients.webp` | Headed "NATURAL INGREDIENTS" over ginseng, ginger, citrus and seeds. The real ingredient list is unknown, so the picture itself is the claim, and nothing short of replacing the image fixes that. |
 
-Two others were brought back into use after the claim was taken out of them:
+Three others were brought back into use after the claim was taken out of them:
 
 | File | What changed |
 | --- | --- |
 | `returns-badge.webp` | Said "100% MONEY BACK GUARANTEED", which has no written conditions behind it. The badge now reads "RETURNS / 14 DAYS / FROM DELIVERY", which is `refund.windowDays` and is verified. The navy was also pulled to the site's own near-black. |
 | `package-podium.webp` | Six bottles of garbled fine print, now reset. The crown stays: it sits over the two-bottle pack, which genuinely is the lowest price per bottle, and the packages section says so in words. |
+| `doorstep-handover.webp` | Was a rider holding out a POS terminal while the customer offered a bank card, with `payment.cardOnDelivery` false. Painting the terminal out was tried and left streaks across the doorway behind it, so the frame was moved instead: it now starts to the right of the terminal and shows the customer at his door with the parcel. See `tools/fix_delivery.py`. |
 
 The worried man and the relaxed man are never placed next to each other, and
 neither is captioned as a result. They are not a before-and-after.

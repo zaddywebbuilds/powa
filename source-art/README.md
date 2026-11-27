@@ -20,5 +20,9 @@ python tools/fix_labels.py
 python tools/build_images.py
 ```
 
+`tools/fix_delivery.py` is separate: it reframes the delivery photograph so the
+card terminal falls outside the frame, and records in its header why painting
+the terminal out was tried and abandoned.
+
 Replace all of it with genuine photographs of the real bottle, front and back,
 before the site is advertised anywhere.

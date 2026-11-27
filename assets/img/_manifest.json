@@ -256,23 +256,6 @@
     ],
     "dir": "reserve"
   },
-  "reserve-payment-delivery": {
-    "src_w": 1122,
-    "src_h": 1402,
-    "variants": [
-      {
-        "file": "reserve-payment-delivery.webp",
-        "w": 1100,
-        "h": 1375
-      },
-      {
-        "file": "reserve-payment-delivery-sm.webp",
-        "w": 604,
-        "h": 755
-      }
-    ],
-    "dir": "reserve"
-  },
   "returns-badge": {
     "src_w": 1122,
     "src_h": 1402,
@@ -303,6 +286,23 @@
         "file": "package-podium-sm.webp",
         "w": 604,
         "h": 755
+      }
+    ],
+    "dir": "img"
+  },
+  "doorstep-handover": {
+    "src_w": 778,
+    "src_h": 1615,
+    "variants": [
+      {
+        "file": "doorstep-handover.webp",
+        "w": 778,
+        "h": 1615
+      },
+      {
+        "file": "doorstep-handover-sm.webp",
+        "w": 468,
+        "h": 971
       }
     ],
     "dir": "img"

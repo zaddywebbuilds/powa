@@ -68,9 +68,11 @@ These are AI-generated images of a bottle, not photographs of your bottle.
 - [ ] Confirm whether the parcel is genuinely unbranded before claiming it is
 - [ ] Only set `payment.cardOnDelivery` if the rider carries a POS terminal
 
-`assets/img/reserve/reserve-payment-delivery.webp` shows a card being offered to
-a POS terminal, and `reserve-ingredients.webp` names botanicals as the formula.
-Both stay off the site until the fact behind the picture is in writing.
+`assets/img/reserve/reserve-ingredients.webp` names botanicals as the formula.
+It stays off the site until the ingredient list is in writing. The POS terminal
+image was reframed to drop the card payment out of it and is now in use as
+`doorstep-handover.webp`; if the rider does start carrying a terminal, the
+original is still in `source-art/`.
 
 ## 6. Fix the package pricing
 
