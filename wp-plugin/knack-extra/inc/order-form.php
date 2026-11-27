@@ -2,9 +2,9 @@
 /**
  * The order form.
  *
- * The form itself is a Fluent Forms form, so that every order is recorded as
- * an entry in WordPress and the client can change the fields without touching
- * the theme. The theme only decides where it sits and what it looks like.
+ * The form itself is a Fluent Forms form, so every order is recorded as an
+ * entry in WordPress and the fields can be changed without touching code.
+ * This file only decides where it sits and what it looks like.
  *
  * @package knack-extra
  */
@@ -19,8 +19,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @return int
  */
 function ke_form_id() {
-	$id = absint( get_theme_mod( 'knack_form_id', 42 ) );
-	return absint( apply_filters( 'knack_form_id', $id ) );
+	return absint( apply_filters( 'knack_form_id', absint( get_option( 'knack_form_id', 42 ) ) ) );
 }
 
 /**
@@ -38,7 +37,7 @@ function ke_forms_active() {
  * @return bool
  */
 function ke_has_order_form() {
-	return is_front_page();
+	return KNACK_TPL_SALES === ke_current_template();
 }
 
 /**
@@ -73,12 +72,12 @@ function ke_order_form_notice() {
 	}
 
 	if ( ! ke_forms_active() ) {
-		echo '<div class="notice notice-error"><p><strong>Knack Extra:</strong> Fluent Forms is not active, so the order form on the front page cannot render. Customers are being shown the support link instead.</p></div>';
+		echo '<div class="notice notice-error"><p><strong>Knack Extra:</strong> Fluent Forms is not active, so the order form cannot render. Customers are being shown the support link instead.</p></div>';
 		return;
 	}
 
 	if ( ke_form_id() < 1 ) {
-		echo '<div class="notice notice-warning"><p><strong>Knack Extra:</strong> no order form is selected. Set the form ID under Appearance, Customize, Knack Extra order form.</p></div>';
+		echo '<div class="notice notice-warning"><p><strong>Knack Extra:</strong> no order form is selected. Choose one under Settings, Knack Extra.</p></div>';
 	}
 }
 add_action( 'admin_notices', 'ke_order_form_notice' );

@@ -1,0 +1,45 @@
+/* ===========================================================================
+   KNACK EXTRA - WordPress adjustments
+   ---------------------------------------------------------------------------
+   site.css is shared byte for byte with the static build. Anything that only
+   matters once WordPress is rendering the page belongs here instead, so the
+   two builds never drift apart.
+   ========================================================================= */
+
+/* The site header is fixed, so it has to clear the admin bar for a logged-in
+   editor. Without this the logo sits underneath it. */
+.admin-bar .site-head { top: 32px; }
+.admin-bar .mobile-nav { top: calc(var(--head-h) + 32px); }
+
+@media screen and (max-width: 782px) {
+  .admin-bar .site-head { top: 46px; }
+  .admin-bar .mobile-nav { top: calc(var(--head-h) + 46px); }
+}
+
+/* The active theme's stylesheets are dequeued on these pages, but a plugin on
+   the site may still enqueue something global. These are the properties that
+   would do visible damage, pinned back to this page's own design system. */
+body.knack-page {
+  margin: 0;
+  background: var(--ink);
+  color: var(--ivory);
+  font-family: var(--sans);
+  font-size: 16px;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+body.knack-page img,
+body.knack-page video { max-width: 100%; height: auto; }
+
+body.knack-page a { text-decoration: none; }
+
+body.knack-page button,
+body.knack-page input,
+body.knack-page select,
+body.knack-page textarea { font-family: inherit; }
+
+/* The policies template is a light document. This has to sit after the
+   .knack-page block above, which also sets a background, or it loses on
+   source order: the two selectors carry the same specificity. */
+body.knack-page.knack-policies { background: var(--ivory); }

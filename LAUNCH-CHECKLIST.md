@@ -27,7 +27,14 @@ Until the WhatsApp number is set, the order button hides itself.
 - [ ] Install an SMTP plugin. WordPress mail from shared hosting fails quietly,
       and a form that looks like it works while dropping orders is worse than
       no form at all.
-- [ ] Take the front page off Elementor and trash the old **MAN POWA** page
+- [ ] Create the page at `/knackextra/` and assign it the **Knack Extra sales
+      page** template, and a child page with the **Knack Extra policies**
+      template. The plugin claims nothing until you do, and the other sales
+      pages on the site are never touched.
+- [ ] Decide what happens to the old **MAN POWA** Elementor page. It is a
+      separate page from the new one, so both can be live at once, which is
+      worth avoiding: two pages selling the same product split your traffic
+      and compete with each other in search.
 - [ ] Place one test order and confirm the entry, the email, and that the entry
       carries the reference and the total
 
