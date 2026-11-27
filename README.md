@@ -182,6 +182,20 @@ and cost nothing beyond its 12 KB. Everyone else gets a file sized for their
 screen: `hero-sprout-480.mp4` at 132 KB on a phone, `hero-sprout.mp4` at
 685 KB on a desktop.
 
+**Cache busting is no longer optional.** The hero video has no `src` in the
+markup, so a visitor holding a stale `site.js` would get fresh HTML, no video
+source and no video at all, and the package thumbnails would quietly fall back
+to the full size art. `tools/stamp_assets.py` appends a content hash to the
+CSS and JS links in the static pages, so a stale file can never be paired with
+fresh markup. Run it after changing either:
+
+```powershell
+python tools/stamp_assets.py
+```
+
+The WordPress build does not need it: every enqueue is versioned on the file's
+own modification time.
+
 The `@font-face` rules were moved out of `assets/fonts/fonts.css` and inlined
 at the top of `site.css`. Behind an `@import` the browser could not even
 discover the font stylesheet until `site.css` had arrived, which cost a whole

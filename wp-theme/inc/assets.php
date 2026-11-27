@@ -24,6 +24,23 @@ function ke_asset( $path ) {
 }
 
 /**
+ * Cache busting version for a theme asset: the file's own modification time.
+ *
+ * A stale site.js paired with fresh markup is not cosmetic here. The hero
+ * video has no `src` in the markup, so an old script means no video at all,
+ * and the package thumbnails fall back to the full size art. Versioning every
+ * enqueue on the file itself makes that pairing impossible.
+ *
+ * @param string $path Path below assets/.
+ * @return string
+ */
+function ke_ver( $path ) {
+	$file = get_theme_file_path( 'assets/' . ltrim( $path, '/' ) );
+	$time = file_exists( $file ) ? filemtime( $file ) : 0;
+	return $time ? (string) $time : KNACK_VERSION;
+}
+
+/**
  * Permalink of the policies page, falling back to a sensible guess so that
  * the footer links never go nowhere.
  *
@@ -62,14 +79,14 @@ function knack_enqueue() {
 		'knack-site',
 		ke_asset( 'css/site.css' ),
 		array(),
-		KNACK_VERSION
+		ke_ver( 'css/site.css' )
 	);
 
 	wp_enqueue_style(
 		'knack-theme',
 		ke_asset( 'css/theme.css' ),
 		array( 'knack-site' ),
-		KNACK_VERSION
+		ke_ver( 'css/theme.css' )
 	);
 
 	if ( ke_has_order_form() ) {
@@ -77,7 +94,7 @@ function knack_enqueue() {
 			'knack-fluentform',
 			ke_asset( 'css/fluentform.css' ),
 			array( 'knack-site' ),
-			KNACK_VERSION
+			ke_ver( 'css/fluentform.css' )
 		);
 	}
 
@@ -85,7 +102,7 @@ function knack_enqueue() {
 		'knack-config',
 		ke_asset( 'js/config.js' ),
 		array(),
-		KNACK_VERSION,
+		ke_ver( 'js/config.js' ),
 		false
 	);
 
@@ -99,7 +116,7 @@ function knack_enqueue() {
 		'knack-site',
 		ke_asset( 'js/site.js' ),
 		array( 'knack-config' ),
-		KNACK_VERSION,
+		ke_ver( 'js/site.js' ),
 		true
 	);
 
@@ -108,7 +125,7 @@ function knack_enqueue() {
 			'knack-policies',
 			ke_asset( 'js/policies.js' ),
 			array( 'knack-config' ),
-			KNACK_VERSION,
+			ke_ver( 'js/policies.js' ),
 			true
 		);
 	}
