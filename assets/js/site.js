@@ -662,6 +662,18 @@
     nodes.forEach(function (n) { io.observe(n); });
   }
 
+  // The hero clip carries no information, so it is started from here rather
+  // than with an autoplay attribute: anyone who has asked their system for
+  // reduced motion keeps the still poster frame, and so does anyone without
+  // JavaScript. It is silent and has no controls either way.
+  function wireHeroVideo() {
+    var v = $('.hero-video');
+    if (!v || prefersReduced()) return;
+    v.muted = true;
+    var p = v.play();
+    if (p && p.catch) p.catch(function () { /* browser declined; poster stays */ });
+  }
+
   function wireForm() {
     var form = $('#order-form');
     if (!form) return;
@@ -791,6 +803,7 @@
     wireSupport();
     wireHeader();
     wireReveal();
+    wireHeroVideo();
     wireForm();
     trackSections();
     injectSchema();

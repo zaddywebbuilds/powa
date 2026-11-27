@@ -34,6 +34,7 @@ assets/js/site.js     renders the page from that config
 assets/css/site.css   design system
 assets/img/           optimised WebP
 assets/img/reserve/   art held back, see below
+assets/video/         the hero clip, silent and looping
 assets/fonts/         self-hosted Playfair Display + Manrope, latin subset
 source-art/           full-resolution originals, never served
 source-art/fixed/     the same art with the label text repaired
@@ -140,6 +141,33 @@ Three others were brought back into use after the claim was taken out of them:
 
 The worried man and the relaxed man are never placed next to each other, and
 neither is captioned as a result. They are not a before-and-after.
+
+---
+
+## The hero clip
+
+`assets/video/hero-sprout.mp4` is 3.7 seconds, 752x416, silent, 700 KB. It is a
+seed germinating in soil. It carries no product, no text and no claim.
+
+The supplied source ran 10 seconds. Only the first 4.5 are used. After that,
+gold 3D lettering rotates around the sprout reading "ALL FROM NA...",
+"NATURAL ROO..." and similar: garbled, like the bottle labels were, and
+unfixable across 130 frames of moving type. Read as intended it also says the
+product is all from natural roots, which is a composition claim, and
+`product.ingredients` is unverified. So the tail is cut, not repaired.
+
+It is closed into a seamless loop: the last 0.8s dissolves into the first 0.8s
+and that blend sits at the end, so the final and first frames are the same
+moment. Rebuild it with:
+
+```powershell
+python tools/build_hero_video.py
+```
+
+It is started from `site.js`, not by an `autoplay` attribute. Anyone who has
+asked their system for reduced motion, and anyone without JavaScript, keeps the
+still poster frame instead. It is muted, has no controls and cannot be put into
+picture-in-picture.
 
 ---
 

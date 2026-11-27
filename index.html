@@ -19,7 +19,7 @@
 <meta name="twitter:card" content="summary_large_image">
 
 <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
-<link rel="preload" as="image" href="assets/img/hero-dark.webp" imagesrcset="assets/img/hero-dark-sm.webp 1056w, assets/img/hero-dark.webp 1672w" imagesizes="100vw" fetchpriority="high">
+<link rel="preload" as="image" href="assets/img/hero-sprout-poster.webp" fetchpriority="high">
 <link rel="preload" as="font" type="font/woff2" href="assets/fonts/manrope-400.woff2" crossorigin>
 <link rel="preload" as="font" type="font/woff2" href="assets/fonts/playfair-500.woff2" crossorigin>
 <link rel="stylesheet" href="assets/css/site.css">
@@ -89,11 +89,12 @@
     </div>
 
     <div class="hero-art">
-      <img src="assets/img/hero-dark.webp"
-           srcset="assets/img/hero-dark-sm.webp 1056w, assets/img/hero-dark.webp 1672w"
-           sizes="(max-width:860px) 92vw, 46vw" width="1672" height="941"
-           fetchpriority="high" decoding="async"
-           alt="A bottle of Knack Extra Capsules lit against a dark background.">
+      <video class="hero-video" poster="assets/img/hero-sprout-poster.webp"
+             width="752" height="416" muted loop playsinline preload="metadata"
+             disablepictureinpicture
+             aria-label="A seed germinating in dark soil and putting down roots.">
+        <source src="assets/video/hero-sprout.mp4" type="video/mp4">
+      </video>
     </div>
   </div>
 </section>
@@ -292,6 +293,9 @@
     <div>
       <p class="eyebrow">Convenient ordering</p>
       <h2 class="display h-lg">From your order to your doorstep.</h2>
+      <figure class="col-art">
+        <img src="assets/img/hero-dark.webp" srcset="assets/img/hero-dark-sm.webp 1056w, assets/img/hero-dark.webp 1672w" sizes="(max-width:860px) 92vw, 30vw" width="1672" height="941" loading="lazy" decoding="async" alt="A bottle of Knack Extra Capsules lit against a dark background with loose capsules beside it.">
+      </figure>
     </div>
     <div class="grid steps">
       <article class="step" data-rise><span class="n">1</span><h3>Choose your package</h3><p>One, two or three bottles. The total is shown in full before you send anything.</p></article>

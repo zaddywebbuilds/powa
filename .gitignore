@@ -6,3 +6,7 @@ node_modules/
 # source-art/ is deliberately NOT ignored. The full-resolution originals are
 # kept in the repo as a backup. They are never served by the site itself -
 # assets/img/ holds the optimised WebP files the pages load.
+
+# Python bytecode from the tools/ scripts
+__pycache__/
+*.pyc

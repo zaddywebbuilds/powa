@@ -269,7 +269,10 @@ section{position:relative}
   min-width:0;border-radius:var(--r-lg);overflow:hidden;
   background:#050706;border:1px solid var(--line-dark);
 }
-.hero-art img{width:100%;height:auto;display:block}
+.hero-art img,.hero-art video{width:100%;height:auto;display:block}
+/* The hero clip is decorative and silent. It only ever runs when the visitor
+   has not asked for reduced motion; otherwise the poster frame stays put. */
+.hero-video{background:#070906}
 
 .hero-price{
   display:flex;align-items:baseline;gap:.6rem;flex-wrap:wrap;

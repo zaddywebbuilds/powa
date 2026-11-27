@@ -24,5 +24,9 @@ python tools/build_images.py
 card terminal falls outside the frame, and records in its header why painting
 the terminal out was tried and abandoned.
 
+`hero-sprout-source.mp4` is the video the hero clip is cut from. Its second
+half carries garbled gold lettering reading "ALL FROM NATURAL ROOTS" and is not
+used; `tools/build_hero_video.py` explains why and rebuilds the clip.
+
 Replace all of it with genuine photographs of the real bottle, front and back,
 before the site is advertised anywhere.

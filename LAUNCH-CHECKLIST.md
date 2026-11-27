@@ -58,6 +58,12 @@ These are AI-generated images of a bottle, not photographs of your bottle.
 - [ ] Replace `hero-dark`, `hero-dark-alt`, `product-hero`, `product-usage`,
       `bundle-one/two/three`, `package-podium`, `returns-badge`
 - [ ] Check the capsules shown match what is actually in the bottle
+- [ ] The hero clip is generated too. It shows a seed germinating, nothing
+      more, because the half of the source that carried "ALL FROM NATURAL
+      ROOTS" was cut: the lettering was garbled and the claim is not evidenced.
+      Do not restore it, and do not replace the clip with anything that states
+      or implies what is in the capsules, until the ingredient list is in
+      writing.
 
 ## 5. Write the terms down
 
