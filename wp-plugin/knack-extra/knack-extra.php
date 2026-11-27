@@ -32,6 +32,7 @@ define( 'KNACK_URL', plugin_dir_url( __FILE__ ) );
 const KNACK_TPL_SALES    = 'knack-extra-sales';
 const KNACK_TPL_POLICIES = 'knack-extra-policies';
 
+require_once KNACK_DIR . 'inc/meta.php';
 require_once KNACK_DIR . 'inc/template.php';
 require_once KNACK_DIR . 'inc/assets.php';
 require_once KNACK_DIR . 'inc/order-form.php';

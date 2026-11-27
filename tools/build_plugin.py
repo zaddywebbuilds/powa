@@ -21,6 +21,7 @@ exactly as it does now.
 
 from __future__ import annotations
 
+import html as htmlmod
 import re
 import shutil
 import zipfile
@@ -205,6 +206,63 @@ def build_policies_js(policies_html: str) -> str:
     )
 
 
+
+def build_meta(index_html: str, policies_html: str) -> str:
+    """Generate inc/meta.php from the titles the static pages already carry.
+
+    What a pasted link shows is decided by these two strings. Taking them from
+    the HTML means they say what the page says, rather than depending on the
+    WordPress Site Title, which on the live install is "Admin".
+    """
+    def grab(doc):
+        title = re.search(r'<title[^>]*>(.*?)</title>', doc, re.S).group(1)
+        desc = re.search(r'<meta name="description" content="(.*?)"', doc, re.S)
+        return (htmlmod.unescape(title).strip(),
+                htmlmod.unescape(desc.group(1)).strip() if desc else '')
+
+    sales = grab(index_html)
+    policies = grab(policies_html)
+
+    bs = chr(92)
+
+    def php(s):
+        return s.replace(bs, bs + bs).replace("'", bs + "'")
+
+    lines = [
+        "<?php",
+        "/**",
+        " * Titles and descriptions for the link preview.",
+        " *",
+        " * " + GENERATED,
+        " *",
+        " * @package knack-extra",
+        " */",
+        "",
+        "if ( ! defined( 'ABSPATH' ) ) {",
+        chr(9) + "exit;",
+        "}",
+        "",
+        "/**",
+        " * Per template metadata.",
+        " *",
+        " * @return array",
+        " */",
+        "function ke_meta() {",
+        chr(9) + "return array(",
+        chr(9) * 2 + "KNACK_TPL_SALES    => array(",
+        chr(9) * 3 + "'title' => '" + php(sales[0]) + "',",
+        chr(9) * 3 + "'desc'  => '" + php(sales[1]) + "',",
+        chr(9) * 2 + "),",
+        chr(9) * 2 + "KNACK_TPL_POLICIES => array(",
+        chr(9) * 3 + "'title' => '" + php(policies[0]) + "',",
+        chr(9) * 3 + "'desc'  => '" + php(policies[1]) + "',",
+        chr(9) * 2 + "),",
+        chr(9) + ");",
+        "}",
+        "",
+    ]
+    return chr(10).join(lines)
+
 def copy_assets() -> None:
     for name in ASSET_DIRS:
         src = ROOT / 'assets' / name
@@ -256,6 +314,8 @@ def main() -> None:
         build_policies(policies_html, index_html), encoding='utf-8')
     (OUT / 'assets' / 'js' / 'policies.js').write_text(
         build_policies_js(policies_html), encoding='utf-8')
+    (OUT / 'inc' / 'meta.php').write_text(
+        build_meta(index_html, policies_html), encoding='utf-8')
 
     files = write_zip()
     print('plugin  : %s' % OUT)
