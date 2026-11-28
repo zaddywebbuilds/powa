@@ -324,14 +324,6 @@ section{position:relative}
 
 .hero-actions{display:flex;gap:.7rem;flex-wrap:wrap}
 
-.hero-points{
-  display:flex;gap:1.3rem;flex-wrap:wrap;margin:1.5rem 0 0;
-  font-size:.84rem;color:rgba(248,245,238,.75);font-weight:600;
-  list-style:none;padding:0;
-}
-.hero-points li{display:flex;align-items:center;gap:.45rem}
-.hero-points svg{color:var(--gold);flex:none}
-
 @media (max-width:860px){
   .hero-grid{grid-template-columns:1fr}
   .hero-art{order:-1}
