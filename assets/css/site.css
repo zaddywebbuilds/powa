@@ -842,3 +842,40 @@ section{position:relative}
 .foot-grid ul{gap:.1rem}
 .foot-grid ul a{display:inline-block;padding:.55rem 0;line-height:1.35}
 .check input{width:20px;height:20px}
+
+/* ---------------------------------------------------------------- reviews */
+/* Carried over from the seller's existing page. The photograph is the one
+   they supplied; the quote beside it is live text rather than part of the
+   JPEG, so it reflows on a phone and can be read aloud. */
+.review-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--gap)}
+@media (max-width:1000px){.review-grid{grid-template-columns:1fr 1fr}}
+@media (max-width:620px){.review-grid{grid-template-columns:1fr}}
+
+.review{
+  display:flex;flex-direction:column;
+  background:#171B17;border:1px solid var(--line-dark);
+  border-radius:var(--r-lg);overflow:hidden;
+}
+
+/* The four source photographs are not quite the same height, so the frame
+   is fixed and the image fills it. 22% from the top keeps the faces in. */
+.review-media{aspect-ratio:16/10;background:#0B0D0B}
+.review-media img{width:100%;height:100%;object-fit:cover;object-position:50% 22%;display:block}
+
+.review-body{display:flex;flex-direction:column;gap:.5rem;padding:1.05rem 1.1rem 1.15rem;flex:1}
+
+.stars{display:flex;gap:2px;color:var(--gold)}
+.stars svg{width:15px;height:15px;flex:none}
+
+.review h3{
+  font-family:var(--display);font-size:1.08rem;line-height:1.3;
+  font-weight:700;color:var(--white);margin:0;
+}
+.review .review-quote{margin:0;font-size:.87rem;line-height:1.6;color:var(--muted-dark)}
+
+.review .review-who{
+  margin:auto 0 0;padding-top:.9rem;border-top:1px solid var(--line-dark);
+  display:flex;gap:.45rem;align-items:baseline;font-size:.82rem;color:var(--ivory);
+}
+.review .review-who span{color:var(--muted-dark)}
+.review .review-who span::before{content:"\00b7";margin-right:.45rem}

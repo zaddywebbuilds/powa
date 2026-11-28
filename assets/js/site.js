@@ -221,6 +221,71 @@
 
   /* ----------------------------------------------------------------- FAQ */
 
+  /* ------------------------------------------------------------- reviews */
+  // Carried across from the seller's existing page. The photographs are the
+  // same ones; the caption card baked into each JPEG was cropped off by
+  // tools/build_reviews.py so the words can be set here in type that reflows
+  // on a phone and that a screen reader can read.
+
+  function starRow(n) {
+    var out = '';
+    for (var i = 0; i < 5; i++) {
+      out += '<svg viewBox="0 0 24 24" aria-hidden="true" fill="' +
+        (i < n ? 'currentColor' : 'none') + '" stroke="currentColor" stroke-width="1.6">' +
+        '<path d="m12 3 2.6 5.5 6 .8-4.4 4.2 1.1 6-5.3-2.9-5.3 2.9 1.1-6L3.4 9.3l6-.8Z"/></svg>';
+    }
+    return out;
+  }
+
+  function renderReviews() {
+    var section = $('#reviews');
+    var grid = $('#review-grid');
+    if (!section || !grid) return;
+
+    var R = C.reviews;
+    // Switched off, or nothing to show: take the whole section out rather
+    // than leave a heading above an empty row.
+    if (!R || !R.enabled || !R.items || !R.items.length) {
+      section.parentNode.removeChild(section);
+      $$('a[href="#reviews"]').forEach(function (a) {
+        a.parentNode.removeChild(a);
+      });
+      return;
+    }
+
+    R.items.forEach(function (r, i) {
+      var card = el('article', 'review');
+      card.setAttribute('data-rise', '');
+      card.style.setProperty('--d', (i * 0.06).toFixed(2) + 's');
+
+      var media = '';
+      if (r.image) {
+        media =
+          '<div class="review-media">' +
+            '<img src="' + IMG + r.image + '-360.webp"' +
+            ' srcset="' + IMG + r.image + '-360.webp 360w, ' + IMG + r.image + '-720.webp 720w"' +
+            ' sizes="(max-width:620px) 92vw, (max-width:1000px) 44vw, 23vw"' +
+            ' loading="lazy" decoding="async" alt="">' +
+          '</div>';
+      }
+
+      var where = [r.name, r.location].filter(Boolean).map(esc);
+
+      card.innerHTML =
+        media +
+        '<div class="review-body">' +
+          '<div class="stars" role="img" aria-label="' +
+            esc(r.rating + ' out of 5') + '">' + starRow(r.rating) + '</div>' +
+          (r.title ? '<h3>' + esc(r.title) + '</h3>' : '') +
+          '<p class="review-quote">' + esc(r.body) + '</p>' +
+          '<p class="review-who"><strong>' + (where[0] || '') + '</strong>' +
+            (where[1] ? '<span>' + where[1] + '</span>' : '') + '</p>' +
+        '</div>';
+
+      grid.appendChild(card);
+    });
+  }
+
   function renderFaq() {
     var box = $('#faq-list');
     if (!box) return;
@@ -964,6 +1029,7 @@
     renderDelivery();
     renderRefund();
     renderFaq();
+    renderReviews();
     renderPackages();
     renderStates();
     renderFooter();

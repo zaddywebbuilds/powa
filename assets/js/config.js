@@ -173,12 +173,58 @@ window.KNACK = {
   },
 
   /* ------------------------------------------------------------- reviews -- */
-  // Switched OFF. The original page showed four unverifiable chat screenshots
-  // with no names, no consent and medical efficacy claims in them. Nothing
-  // here is invented. Add real, consented, claim-free reviews and flip this on.
+  // Carried across from the seller's existing page at /powa, word for word.
+  // The photographs are the same ones, with the caption card cropped off so
+  // the words can be set in type that reflows on a phone.
+  //
+  // These came from the seller as finished marketing graphics, not collected
+  // from customers through this website, and the wording makes claims about
+  // erectile function and sexual performance. That matters for NAFDAC
+  // advertisement approval, for ARCON, and for Meta ad review, all of which
+  // read the landing page. See LAUNCH-CHECKLIST.md.
+  //
+  // `enabled` is the switch. Setting it to false removes the whole section
+  // from the page without touching anything else.
   reviews: {
-    enabled: false,
-    items: []
+    enabled: true,
+    items: [
+      {
+        name: "Suleiman M.",
+        location: "Abuja",
+        age: 49,
+        rating: 5,
+        title: "I Finally Stopped Making Excuses",
+        body: "I'm 49. I used to avoid intimacy because I was afraid of disappointing my wife. After trying Knack Extra, I felt stronger, more confident, and could last much longer. It really changed my relationship.",
+        image: "review-1"
+      },
+      {
+        name: "Emeka O.",
+        location: "Enugu",
+        age: 46,
+        rating: 5,
+        title: "I Thought My Bedroom Days Were Over",
+        body: "I'm 46. Married for 14 years. For almost a year, I could hardly get or maintain an erection. I started avoiding intimacy because I was embarrassed. I tried different products without seeing much difference. I decided to give Knack Extra a chance. After a few weeks, I noticed better performance and more confidence in the bedroom. My wife even asked me what had changed. I feel like myself again.",
+        image: "review-2"
+      },
+      {
+        name: "Ayodeji A.",
+        location: "Ibadan",
+        age: 38,
+        rating: 5,
+        title: "My Wife Couldn't Believe The Change",
+        body: "I'm 38. Weak erections and poor stamina were becoming a big problem in my marriage. A friend recommended Knack Extra. After a short time, I started getting firmer erections, better endurance, and my confidence came back.",
+        image: "review-3"
+      },
+      {
+        name: "Tunde A.",
+        location: "Lagos",
+        age: 42,
+        rating: 5,
+        title: "I Was Losing Confidence Every Single Day",
+        body: "I'm 42. Stress from work started affecting my bedroom performance. Sometimes I couldn't stay hard long enough. After using Knack Extra regularly, I became more confident, lasted longer, and my wife says she hasn't seen me this happy in years.",
+        image: "review-4"
+      }
+    ]
   },
 
   /* ----------------------------------------------------------------- faq -- */
