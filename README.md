@@ -249,31 +249,48 @@ neither is captioned as a result. They are not a before-and-after.
 
 ## The hero clip
 
-`assets/video/hero-sprout.mp4` is 3.7 seconds, 752x416, silent, 685 KB, and
-`assets/video/hero-sprout-480.mp4` is the same clip at 480 wide and 132 KB for
-phones. It is a seed germinating in soil. It carries no product, no text and
-no claim.
+`assets/video/hero-anatomy.mp4` is 7.8 seconds, 462x294, silent, 199 KB, and
+`assets/video/hero-anatomy-480.mp4` is the same clip at a higher compression
+and 83 KB for phones. It is a 3D medical animation of the male reproductive
+anatomy, supplied by the seller.
 
-The supplied source ran 10 seconds. Only the first 4.5 are used. After that,
-gold 3D lettering rotates around the sprout reading "ALL FROM NA...",
-"NATURAL ROO..." and similar: garbled, like the bottle labels were, and
-unfixable across 130 frames of moving type. Read as intended it also says the
-product is all from natural roots, which is a composition claim, and
-`product.ingredients` is unverified. So the tail is cut, not repaired.
-
-It is closed into a seamless loop: the last 0.8s dissolves into the first 0.8s
-and that blend sits at the end, so the final and first frames are the same
-moment. Rebuild it with:
+It already returns to its opening frame, measured at a mean difference of 3.4
+out of 255 between the first and last frames, so unlike the clip before it, it
+needs no dissolve to close the loop. Rebuild it with:
 
 ```powershell
-python tools/build_hero_video.py
+python tools/build_hero_clip.py source-art/hero-anatomy-source.mp4 hero-anatomy
 ```
+
+The source arrived as a 462x294 screen recording with an audio track. The
+audio is stripped, and the frame is **not** upscaled: enlarging adds bytes
+without adding detail. 462 is close to right for a phone, where the hero box
+measures about 337 CSS px, and a little under what a large desktop would like.
+With 98% of the traffic on phones that is the right way round, but a larger
+original would still be better if the seller has one.
+
+### Switching back
+
+The previous clip is still in the repository: `hero-sprout.mp4`,
+`hero-sprout-480.mp4` and their posters, built by `tools/build_hero_video.py`,
+whose header records why its second half was cut. Swapping back is four
+attributes on the `<video>` in `index.html` plus the poster preload in the
+`<head>`, and one line in `wp-plugin/knack-extra/inc/assets.php`.
+
+### What is not affected
+
+The share card is deliberately separate. `assets/img/share-card.jpg` is cut
+from the bottle artwork, not from the hero, so what appears when the link is
+pasted into WhatsApp does not follow the hero. Changing one does not change
+the other, which is the point.
+
+### How it loads
 
 It is started from `site.js`, not by an `autoplay` attribute, and the `src` is
 set there too, so an unwanted clip is never downloaded at all. Anyone who has
 asked their system for reduced motion, anyone on Save-Data or a 2g connection,
-and anyone without JavaScript keeps the still poster frame instead. It is muted, has no controls and cannot be put into
-picture-in-picture.
+and anyone without JavaScript keeps the still poster frame instead. It is
+muted, has no controls and cannot be put into picture-in-picture.
 
 ---
 

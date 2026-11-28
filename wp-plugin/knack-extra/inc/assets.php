@@ -140,7 +140,7 @@ function ke_preload() {
 	if ( KNACK_TPL_SALES === ke_current_template() ) {
 		printf(
 			'<link rel="preload" as="image" href="%s" fetchpriority="high">' . "\n",
-			esc_url( ke_asset( 'img/hero-sprout-poster-480.webp' ) )
+			esc_url( ke_asset( 'img/hero-anatomy-poster-480.webp' ) )
 		);
 	}
 }
