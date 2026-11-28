@@ -124,16 +124,27 @@ because hiding it would be worse. Decide a price for the 3-pack that beats
 
 ## 7. Reviews
 
-The reviews section is switched off and empty. The four testimonials on the old
-page were chat screenshots with no names, no consent and medical claims inside
-them.
+The four reviews from the existing page at `/powa` are now on the site, word
+for word, with the same photographs. They live in `reviews.items` in
+`config.js`, and `reviews.enabled` is `true`.
 
-- [ ] Collect real feedback with the customer's permission to publish it
-- [ ] Strip phone numbers and anything identifying
-- [ ] Remove any claim about a medical result
-- [ ] Add them to `reviews.items` and set `reviews.enabled: true`
+They came from the seller as finished marketing graphics, not as feedback
+collected from customers through this website, and each one describes a
+result: lasting longer, firmer erections, better performance. Three things
+follow, and all three are the owner's to settle:
 
-Do not invent reviews, ratings, star counts or "verified purchase" badges.
+- [ ] Confirm the four named people are real customers who agreed to be quoted
+      by name, location and age. If that cannot be shown, the section should
+      come down: `reviews.enabled: false` removes it and its navigation links
+      entirely, and nothing else on the page changes.
+- [ ] Put the wording in front of whoever handles the NAFDAC advertisement
+      approval. A claim inside a quotation is still a claim in the advert, and
+      these are claims about erectile function.
+- [ ] Expect Meta to read them. They sit on the landing page, and the landing
+      page is reviewed alongside the advert.
+
+Nothing was invented and no rating, star count or customer total was added
+beyond what the four graphics already carried. Do not add any.
 
 ---
 
